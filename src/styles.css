@@ -1,4 +1,254 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Nunito';
+}   
+
+:root {
+  --color: #5773ff;   
+  --gray: #e8ecef;
+  --grad: linear-gradient(0deg, rgba(72,198,239,1) 0%, rgba(111,134,214,1) 100%);
+}  
+
+.spacer {
+  height: 50px;
 }
+.spacers {
+  height: 30px;
+}
+.spacerl {
+  height: 100px;
+} 
+* {
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.2px;
+  outline: none;
+}
+::selection {
+  background: var(--color);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+} 
+.hidescroll::-webkit-scrollbar {
+  display: none;
+} 
+::-webkit-scrollbar-track {
+  background: #eee; 
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color);
+  border-radius: 50px;
+}
+img {
+  object-fit: cover;
+  max-width: 100%;
+}
+button, .uploadbtn {
+  outline: none;
+  cursor: pointer;
+  border: 1px solid var(--color);
+  transition: all 0.2s;
+  padding: 9px 15px;
+  background: var(--color);
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 10px 20px -2px rgba(53,182,250,0.05);
+} 
+button:active {
+  transform: scale(0.97);
+}
+button:hover {
+  filter: brightness(110%);
+  box-shadow: 0px 10px 14px 0px rgba(53,182,250,0.07);
+} 
+button i, a i {
+  margin-right: 10px;
+}
+input {
+  border: none;
+  padding: 13px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd; 
+} 
+input:focus, textarea:focus, select:focus {
+  border: 1px solid var(--color);
+  box-shadow: 0px 0px 11px 0px rgba(53,182,250,0.14);
+}
+input[type="color"] {
+  height: 45px;
+  padding: 1px 2px;
+  cursor: pointer;
+}
+a { 
+  text-decoration: none;
+  color: #111;
+}
+input, textarea, select {
+  outline: none;
+  transition: all 0.3s;
+}
+textarea {
+  font-family: inherit;
+}
+textarea::placeholder {
+  color: #bbb;
+}
+input::placeholder {
+  color: #bbb;
+  font-size: 12px;
+}
+hr {
+  border: none;
+}
+/*Player Styles */
+.rhap_main-controls-button, .rhap_volume-button, .rhap_button-clear {
+  color: var(--color);
+}
+.rhap_progress-indicator, .rhap_progress-filled, .rhap_volume-indicator {
+  background: var(--color);
+}
+.rhap_current-time, .rhap_total-time {
+  color: #777;
+  font-size: 13px;
+}
+.rhap_progress-bar {
+  height: 3px;
+}
+
+.appcontainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px auto;
+  transition: all 0.3s;
+}
+.sidebar {
+  background: var(--gray);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.logocont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.logocont img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  top: -2px;
+}
+.logocont h5 {
+  color: #555;
+  font-size: 15px;
+  font-weight: 600;
+}
+.logocont h5 span {
+  font-weight: 500;
+}
+.sidebar .menu {
+  width: 100%;
+}
+.sidebar .menu h6 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0px 40px;
+}
+.sidebar .menu a {
+  font-size: 14px;
+  color: #999;
+  padding: 10px 40px;
+  display: block;
+  font-weight: 600;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+.sidebar .menu .activelink, .sidebar .menu a:hover {
+  border-left: 3px solid var(--color);
+  color: var(--color);
+}
+.mainplayer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.homecont {
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
