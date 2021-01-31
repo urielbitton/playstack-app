@@ -117,6 +117,12 @@ hr {
 }
 .mainplayer .rhap_container  {
   transition: all 0.2s;
+  flex-direction: row;
+  align-items: center;
+}
+.rhap_header {
+  min-width: 350px!important;
+  max-width: 450px!important;
 }
 .rhap_main-controls-button, .rhap_volume-button, .rhap_button-clear {
   color: var(--color)!important;
@@ -144,6 +150,28 @@ hr {
 }
 .miniplayericon:hover {
   filter: brightness(120%)
+}
+.playertitles {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  top: 8px;
+}
+.playertitles img {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.playertitles h5 {
+  font-size: 13px;
+  color: #333;
+}
+.playertitles h5 small {
+  color: #777;
+  font-size: 11px;
+  display: block;
+  font-weight: 500;
 }
 
 .appcontainer {
@@ -211,13 +239,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  border-bottom: 1px solid #eee;
   width: calc(100% - 220px);
   position: fixed;
   top: 0;
   right: 0;
   z-index: 999;
-  background: #fff;
+  
 }
 nav .navlinks a {
   font-size: 12px;
@@ -237,7 +264,7 @@ nav label i {
   position: absolute;
   z-index: 10;
   top: 15px;
-  left: 10px;
+  left: 13px;
   color: #333;
   font-size: 14px;
 }
@@ -245,6 +272,7 @@ nav label input {
   width: 100%;
   padding-left: 35px;
   color: var(--color);
+  border-radius: 40px;
 }
 nav .navtools {
   display: flex;
@@ -252,17 +280,18 @@ nav .navtools {
   align-items: center;
   grid-gap: 7px;
 }
-nav .navtools i {
+nav .navtools > i {
   color: #aaa;
   transition: all 0.2s;
   cursor: pointer;
   padding: 5px;
+  border-radius: 10px;
+  background: #fff;
 }
 nav .navtools i:hover {
   color: var(--color);
 }
 nav .profcont {
-  border: 1px solid #eee;
   border-radius: 40px;
   padding: 3px 5px;
   display: flex;
@@ -272,6 +301,7 @@ nav .profcont {
   transition: all 0.2s;
   cursor: pointer;
   margin-left: 10px;
+  background: #fff;
 }
 nav .profcont:hover {
   background: #f5f5f5;
@@ -293,7 +323,6 @@ nav .profcont i:hover {
   height: 100vh;
   width: 100%;
   background: #fff;
-  padding-top: 64px;
   overflow-y: scroll;
 }
 
@@ -343,6 +372,8 @@ nav .profcont i:hover {
   font-size: 50px;
   line-height: 1;
   color: #333;
+  margin: 30px 0;
+  margin-top: 20px;
 }
 .herobanner h5 {
   margin-top: 20px;
@@ -354,16 +385,10 @@ nav .profcont i:hover {
 .herobanner h5 span {
   color: #aaa;
   font-weight: 500;
-  margin-left: 25px;
-}
-.herobanner h5 small {
-  color: #aaa;
-  opacity: 0.9;
   margin-left: 15px;
-  font-weight: 500;
 }
 .herobanner .heroactions {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -375,15 +400,81 @@ nav .profcont i:hover {
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
+.homegrid {
+  display: grid;
+  grid-template-columns: auto 400px;
+  grid-gap: 20px;
+  padding: 20px;
+}
+.homeleft {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 15px;
+}
+.homeright {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.homebox {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+}
+.homeboxrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 20px;
+}
+.homebox > h5 {
+  color: #444;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homebox > h5 small {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.homebox > h5 small:hover {
+  color: var(--color);
+}
+.trendingbox {
+  grid-column: 1/-1;
+} 
+.songbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  text-align: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.songbox img {
+  width: 70px;
+  height: 65px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.songbox h6 {
+  color: #333;
+  font-size: 11px;
+}
+.songbox small {
+  font-size: 10px;
+  color: #aaa;
+  font-weight: 500;
+}
 
 
 

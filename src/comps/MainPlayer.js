@@ -8,14 +8,21 @@ export default function MainPlayer() {
   const {currentSong} = useContext(StoreContext)
   const [miniplayer, setMiniPlayer] = useState(false)
 
+  const playertitles = <div className="playertitles">
+    <img src="https://i.imgur.com/YOdngQn.jpg" alt=""/>
+    <h5>Neon Heart (Extended Mix)<small>Darren Styles</small></h5>
+  </div>
+
   return ( 
     <div className="mainplayer">
-      <i style={{bottom: miniplayer?"40px":"20.5px", left: miniplayer?"62px":"45px"}} onClick={() => setMiniPlayer(!miniplayer)} className={miniplayer?"far fa-window-maximize miniplayericon":"far fa-minus-square miniplayericon"}></i>
+      <i style={{bottom: miniplayer?"40px":"63px", left: miniplayer?"62px":"18px"}} onClick={() => setMiniPlayer(!miniplayer)} className={miniplayer?"far fa-angle-up miniplayericon":"far fa-angle-down miniplayericon"}></i>
       <AudioPlayer
         src={currentSong.src}
         showJumpControls={false}
         showSkipControls={true}
         volume={0.5}
+        layout={'stacked'}
+        header={miniplayer?null:playertitles}
         style={miniplayer?{width: '250px', borderRadius: '10px', bottom:'20px',left:'20px'}:{}}
       />
     </div>
