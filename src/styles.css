@@ -108,18 +108,42 @@ hr {
   border: none;
 }
 /*Player Styles */
+.mainplayer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+}
+.mainplayer .rhap_container  {
+  transition: all 0.2s;
+}
 .rhap_main-controls-button, .rhap_volume-button, .rhap_button-clear {
-  color: var(--color);
+  color: var(--color)!important;
 }
 .rhap_progress-indicator, .rhap_progress-filled, .rhap_volume-indicator {
-  background: var(--color);
+  background: var(--color)!important;
 }
 .rhap_current-time, .rhap_total-time {
-  color: #777;
-  font-size: 13px;
-}
+  color: #777 !important;
+  font-size: 13px !important;
+} 
 .rhap_progress-bar {
-  height: 3px;
+  height: 3px !important;
+}
+.rhap_repeat-button {
+  font-size: 21px!important;
+  top: 4px!important;
+}
+.miniplayericon {
+  color: var(--color);
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.miniplayericon:hover {
+  filter: brightness(120%)
 }
 
 .appcontainer {
@@ -135,7 +159,9 @@ hr {
   align-items: center;
   flex-direction: column;
   overflow-y: scroll;
-}
+  height: 100vh;
+  z-index: 900;
+} 
 .logocont {
   display: flex;
   justify-content: center;
@@ -180,20 +206,127 @@ hr {
   border-left: 3px solid var(--color);
   color: var(--color);
 }
-.mainplayer {
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  width: calc(100% - 220px);
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
 }
+nav .navlinks a {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-weight: 500;
+  color: #bbb;
+}
+nav a.activenavlink {
+  color: var(--color);
+  font-weight: 600;
+}
+nav label {
+  width: 250px;
+}
+nav label i {
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  left: 10px;
+  color: #333;
+  font-size: 14px;
+}
+nav label input {
+  width: 100%;
+  padding-left: 35px;
+  color: var(--color);
+}
+nav .navtools {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 7px;
+}
+nav .navtools i {
+  color: #aaa;
+  transition: all 0.2s;
+  cursor: pointer;
+  padding: 5px;
+}
+nav .navtools i:hover {
+  color: var(--color);
+}
+nav .profcont {
+  border: 1px solid #eee;
+  border-radius: 40px;
+  padding: 3px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 5px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-left: 10px;
+}
+nav .profcont:hover {
+  background: #f5f5f5;
+}
+nav .profcont h6 {
+  color: #777;
+  font-size: 12px;
+}
+nav .profcont img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+nav .profcont i:hover {
+  color: #aaa;
+}
+
 .homecont {
   height: 100vh;
   width: 100%;
   background: #fff;
+  padding-top: 64px;
+  overflow-y: scroll;
 }
 
+/* iOS Style Button */
+.form-switch{display:inline-block;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.form-switch i{position:relative;display:inline-block;margin-right:.5rem;width:46px;height:26px;background-color:#e6e6e6;border-radius:23px;vertical-align:text-bottom;transition:all .3s linear}
+.form-switch i::before{content:"";position:absolute;left:0;width:42px;height:22px;background-color:#fff;border-radius:11px;transform:translate3d(2px,2px,0) scale3d(1,1,1);transition:all .25s linear}
+.form-switch i::after{content:"";position:absolute;left:0;width:22px;height:22px;background-color:#fff;border-radius:11px;box-shadow:0 2px 2px rgba(0,0,0,.24);transform:translate3d(2px,2px,0);transition:all .2s ease-in-out}
+.form-switch:active i::after{width:28px;transform:translate3d(2px,2px,0)}
+.form-switch:active input:checked+i::after{transform:translate3d(16px,2px,0)}
+.form-switch input{display:none}
+.form-switch input:checked+i{background:var(--color)}
+.form-switch input:checked+i::before{transform:translate3d(18px,2px,0) scale3d(0,0,0)}
+.form-switch input:checked+i::after{transform:translate3d(22px,2px,0)} 
 
-
-
+.homepage {
+  width: 100%;
+  overflow: scroll;
+}
+.herobanner {
+  width: 100%;
+  height: 420px;
+}
+.herobanner .herobg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}
 
 
 
