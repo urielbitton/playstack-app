@@ -111,14 +111,19 @@ hr {
 .mainplayer {
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 10px;
+  left: auto;
   width: 100%;
   z-index: 999;
+  padding-left: 10px;
 }
 .mainplayer .rhap_container  {
   transition: all 0.2s;
   flex-direction: row;
   align-items: center;
+  background: none;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.7);
 }
 .rhap_header {
   min-width: 350px!important;
@@ -239,12 +244,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  width: calc(100% - 220px);
+  width: calc(100% - 230px);
   position: fixed;
   top: 0;
-  right: 0;
+  right: 10px;
   z-index: 999;
-  
+  backdrop-filter: blur(10px);
 }
 nav .navlinks a {
   font-size: 12px;
@@ -273,6 +278,7 @@ nav label input {
   padding-left: 35px;
   color: var(--color);
   border-radius: 40px;
+  backdrop-filter: blur(5px)
 }
 nav .navtools {
   display: flex;
@@ -286,10 +292,11 @@ nav .navtools > i {
   cursor: pointer;
   padding: 5px;
   border-radius: 10px;
-  background: #fff;
+  background: rgba(255,255,255,0.5);
 }
 nav .navtools i:hover {
   color: var(--color);
+  background: rgba(255,255,255,0.8);
 }
 nav .profcont {
   border-radius: 40px;
@@ -301,10 +308,10 @@ nav .profcont {
   transition: all 0.2s;
   cursor: pointer;
   margin-left: 10px;
-  background: #fff;
+  background: rgba(255,255,255,0.5);
 }
 nav .profcont:hover {
-  background: #f5f5f5;
+  background: rgba(255,255,255,0.8);
 }
 nav .profcont h6 {
   color: #777;
@@ -402,14 +409,15 @@ nav .profcont i:hover {
 
 .homegrid {
   display: grid;
-  grid-template-columns: auto 400px;
+  grid-template-columns: auto 450px;
   grid-gap: 20px;
   padding: 20px;
+  padding-bottom: 130px;
 }
 .homeleft {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 20px;
 }
 .homeright {
   display: flex;
@@ -424,11 +432,14 @@ nav .profcont i:hover {
   padding: 20px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.1);
   border-radius: 6px;
+  background: #fff;
 }
 .homeboxrow {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.trendingbox .homeboxrow {
   grid-gap: 20px;
 }
 .homebox > h5 {
@@ -450,21 +461,49 @@ nav .profcont i:hover {
 }
 .trendingbox {
   grid-column: 1/-1;
+  box-shadow: none;
 } 
 .songbox {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
+  width: 100px;
   text-align: center;
   flex-direction: column;
   cursor: pointer;
 }
-.songbox img {
-  width: 70px;
-  height: 65px;
+.songbox .imgcont {
+  width: 100px;
+  height: 100px;
   border-radius: 6px;
   margin-bottom: 8px;
+  overflow: hidden;
+}
+.songbox .imgcont:hover .songboxcover {
+  opacity: 1;
+}
+.songbox .songboxcover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.songbox .songboxcover i {
+  color: #fff;
+  font-size: 27px;
+  left: 2px;
+}
+.songbox .imgcont img {
+  width: 100%;
+  height: 100%;
 }
 .songbox h6 {
   color: #333;
@@ -475,15 +514,80 @@ nav .profcont i:hover {
   color: #aaa;
   font-weight: 500;
 }
-
-
-
-
-
-
-
-
-
+.homesongsrow .homeboxrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-gap: 7px;
+}
+.homesongsrow {
+  counter-reset: songrow;
+}
+.songrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%;
+  padding: 8px 5px;
+  transition: all 0.2s;
+  border-radius: 6px;
+}
+.songrow:hover {
+  background: #f9f9f9;
+}
+.songrow::before {
+  counter-increment: songrow;
+  content: counter(songrow);
+  position: absolute;
+  color: #aaa;
+  font-size: 14px;
+}
+.songrow > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.songrow img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin-right: 15px;
+  margin-left: 30px;
+}
+.songrow h6 {
+  font-size: 12px;
+  color: #333;
+}
+.songrow h6 small {
+  display: block;
+  color: #aaa;
+  font-weight: 500;
+}
+.songrow > div > span {
+  font-size: 14px;
+  color: #aaa;
+  margin-right: 20px;
+}
+.songrow > div > small {
+  font-size: 12px;
+  color: #333;
+  margin-right: 20px;
+}
+.songrow i {
+  margin: auto 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.songrow i.fa-play {
+  color: var(--color);
+}
+.songrow i.fa-ellipsis-h {
+  color: #aaa;
+  transition: all 0.2s;
+}
+.songrow i.fa-ellipsis-h:hover {
+  color: var(--color);
+}
 
 
 

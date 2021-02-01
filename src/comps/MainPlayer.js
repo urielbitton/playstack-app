@@ -15,15 +15,16 @@ export default function MainPlayer() {
 
   return ( 
     <div className="mainplayer">
-      <i style={{bottom: miniplayer?"40px":"63px", left: miniplayer?"62px":"18px"}} onClick={() => setMiniPlayer(!miniplayer)} className={miniplayer?"far fa-angle-up miniplayericon":"far fa-angle-down miniplayericon"}></i>
+      <i style={{bottom: miniplayer?"40px":"63px", left: miniplayer?"62px":"30px"}} onClick={() => setMiniPlayer(!miniplayer)} className={miniplayer?"far fa-angle-up miniplayericon":"far fa-angle-down miniplayericon"}></i>
       <AudioPlayer
-        src={currentSong.src}
+        src={currentSong.audiosrc}
+        autoPlay={false}
         showJumpControls={false}
         showSkipControls={true}
         volume={0.5}
         layout={'stacked'}
         header={miniplayer?null:playertitles}
-        style={miniplayer?{width: '250px', borderRadius: '10px', bottom:'20px',left:'20px'}:{}}
+        style={miniplayer?{width: '250px', borderRadius: '10px', bottom:'20px',left:'30px'}:{}}
       />
     </div>
   )
