@@ -29,7 +29,7 @@ export function MediumRow(props) {
 
   const mediumrow = tracks && tracks.map(el => {
     if(el.category.includes(songsfilter))
-      return <SongBox key={el.id} title={el.title} artwork={el.artwork} artist={el.artist} isPlaying={el.isPlaying} />
+      return <SongBox key={el.id} el={el} />
   })
 
   return (

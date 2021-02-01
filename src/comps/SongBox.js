@@ -3,18 +3,26 @@ import {StoreContext} from './StoreContext'
 
 export default function SongBox(props) {
   
-  const {tracks, setTracks} = useContext(StoreContext)
-  const {artwork, title, artist, isPlaying} = props
+  const {currentSong, setCurrentSong} = useContext(StoreContext)
+  const {id, artwork, title, alt, artist, audiosrc, isPlaying} = props.el
 
-  function playSong() {
-    
+  function PlaySong() {
+    setCurrentSong({
+      id,
+      title,
+      alt,
+      audiosrc,
+      artwork,
+      artist,
+      isPlaying: true,
+    })
   } 
 
   return (
     <div className="songbox">
-      <div className="imgcont">
+      <div className="imgcont"> 
         <img src={artwork} alt=""/>
-        <div className="songboxcover" onClick={() => playSong()}>
+        <div className="songboxcover" onClick={() => PlaySong()}>
           <i className={isPlaying?"fal fa-pause":"fal fa-play"}></i>
         </div>
       </div>

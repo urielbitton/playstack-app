@@ -9,8 +9,8 @@ export default function MainPlayer() {
   const [miniplayer, setMiniPlayer] = useState(false)
 
   const playertitles = <div className="playertitles">
-    <img src="https://i.imgur.com/YOdngQn.jpg" alt=""/>
-    <h5>Neon Heart (Extended Mix)<small>Darren Styles</small></h5>
+    <img src={currentSong.artwork} alt=""/>
+    <h5>{currentSong.title} {currentSong.alt}<small>{currentSong.artist}</small></h5>
   </div>
 
   return ( 

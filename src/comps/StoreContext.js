@@ -11,6 +11,7 @@ const StoreContextProvider = (props) => {
       alt: '(Extended Mix)',
       artist: 'Darren Styles',
       audiosrc: 'https://www.mboxdrive.com/Darren Styles feat. Pollyanna - Neon Hearts (Extended Mix) Happy Hardcore Music.mp3',
+      artwork: 'https://i.imgur.com/YOdngQn.jpg',
       isPlaying: false
     }
   )
