@@ -16,14 +16,28 @@ export default function SongBox(props) {
       artist,
       isPlaying: true,
     })
+    document.querySelector('.rhap_container audio').play()
+  }  
+  function PauseSong() {
+    setCurrentSong({
+      id,
+      title,
+      alt,
+      audiosrc,
+      artwork,
+      artist,
+      isPlaying: false,
+    }) 
+    document.querySelector('.rhap_container audio').pause()
   } 
+  
 
   return (
     <div className="songbox">
-      <div className="imgcont"> 
+      <div className="imgcont">  
         <img src={artwork} alt=""/>
-        <div className="songboxcover" onClick={() => PlaySong()}>
-          <i className={isPlaying?"fal fa-pause":"fal fa-play"}></i>
+        <div className="songboxcover" onClick={currentSong.isPlaying?() => PauseSong():() => PlaySong()}>
+          <i className={currentSong.id===id?currentSong.isPlaying?"fal fa-pause":"fal fa-play":"fal fa-play"}></i>
         </div>
       </div>
       <h6>{title}</h6>

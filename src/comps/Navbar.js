@@ -3,6 +3,8 @@ import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-
 import {Inputs} from './AppInputs'
 
 export default function Navbar() {
+
+
   return (
     <nav>
       <div className="navlinks">

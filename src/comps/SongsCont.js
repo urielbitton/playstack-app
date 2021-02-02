@@ -49,7 +49,7 @@ export function SmallRow(props) {
 
   const smallrow = tracks && tracks.slice(0,7).map(el => {
     if(el.category.includes(songsfilter))
-    return <SongRow key={el.id} title={el.title} artwork={el.artwork} artist={el.artist} time={el.time} isPlaying={el.isPlaying}/>
+    return <SongRow key={el.id} el={el} />
   }) 
 
   return (
