@@ -5,14 +5,18 @@ export const StoreContext = createContext()
 const StoreContextProvider = (props) => {
 
   const [currentSong, setCurrentSong] = useState(
-    {
+    { 
       id: 1,
-      title: 'Neon Hearts',
-      alt: '(Extended Mix)',
-      artist: 'Darren Styles',
-      audiosrc: 'https://www.mboxdrive.com/Darren Styles feat. Pollyanna - Neon Hearts (Extended Mix) Happy Hardcore Music.mp3',
-      artwork: 'https://i.imgur.com/YOdngQn.jpg',
-      isPlaying: false
+      title: 'Crocodile Tears',
+      alt: '(Original Mix)',
+      artist: 'Kryder',
+      audiosrc: 'https://www.mboxdrive.com/Kryder - Crocodile Tears (Original Mix) www.livingelectro.com.mp3',
+      artwork: 'https://i.imgur.com/Yl2OuVY.png',
+      category: ['trending'], 
+      time: '5:31',
+      isPlaying: false,
+      plays: '3.4m',
+      favorite: true,
     }
   )
   const [discover, setDiscover] = useState([
