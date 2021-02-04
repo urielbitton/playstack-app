@@ -8,7 +8,7 @@ export default function MainPlayer() {
 
   const {currentSong, setCurrentSong} = useContext(StoreContext)
   const [miniplayer, setMiniPlayer] = useState(false)
-  const [mobilePlayer, setMobilePlayer] = useState(true)
+  const [mobilePlayer, setMobilePlayer] = useState(false)
   const [blurplayer, setBlurPlayer] = useState(true)
 
   const playertitles = <div className="playertitles">
@@ -38,7 +38,11 @@ export default function MainPlayer() {
             onMouseLeave={() => setBlurPlayer(true)}
             onClick={() => {setMobilePlayer(!mobilePlayer);setBlurPlayer(true)}}
           ></i>
-          <div className="playerhead"></div>
+          <div className="playerhead">
+            <i className="far fa-heart"></i>
+            <i className="far fa-font"></i>
+            <i className="far fa-plus"></i>
+          </div>
           <div className="playerbody">
             <div className="playerartworkcont" style={{backgroundImage: `url(${currentSong.artwork})`}}></div>
             <h3>{currentSong.title} {currentSong.alt}</h3>

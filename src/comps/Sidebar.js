@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
+import './styles/Sidebar.css'
  
 export default function Sidebar() {
   return (

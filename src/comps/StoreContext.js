@@ -27,7 +27,7 @@ const StoreContextProvider = (props) => {
       artist: 'Sick Individuals',
       audiosrc: 'https://www.mboxdrive.com/Sick_Individuals⁠_&_Vigel_feat_Nazzereene_Runaway_Intro_Edit.mp3',
       artwork: 'https://i.imgur.com/dichxAF.jpg',
-      category: 'topcharts discover',
+      category: ['topcharts', 'discover'],
       time: '3:18',
       isPlaying: false,
       plays: '4.1m',
@@ -44,7 +44,7 @@ const StoreContextProvider = (props) => {
       artist: 'Kryder',
       audiosrc: 'https://www.mboxdrive.com/Kryder - Crocodile Tears (Original Mix) www.livingelectro.com.mp3',
       artwork: 'https://i.imgur.com/Yl2OuVY.png',
-      category: ['trending'], 
+      category: ['trending','topweek'], 
       time: '3:45',
       isPlaying: false,
       plays: '3.4m',
@@ -62,7 +62,7 @@ const StoreContextProvider = (props) => {
       isPlaying: false,
       plays: '1.2m',
       favorite: true,
-    },
+    }, 
     {
       id: 3,
       title: 'Show Me Your Love',
@@ -83,11 +83,11 @@ const StoreContextProvider = (props) => {
       artist: 'Vicetone',
       audiosrc: 'https://www.mboxdrive.com/Vicetone - No Rest (Radio Edit).mp3',
       artwork: 'https://i.imgur.com/BgvkoTz.jpg',
-      category: 'topcharts',
+      category: ['newreleases'],
       time: '3:29',
       isPlaying: false,
       plays: '2.3m',
-      favorite: false,
+      favorite: true,
     },
     {
       id: 5,
@@ -96,7 +96,7 @@ const StoreContextProvider = (props) => {
       artist: 'Sick Individuals',
       audiosrc: 'https://www.mboxdrive.com/Sick_Individuals⁠_&_Vigel_feat_Nazzereene_Runaway_Intro_Edit.mp3',
       artwork: 'https://i.imgur.com/dichxAF.jpg',
-      category: 'topcharts discover',
+      category: ['topcharts', 'discover', 'topmonth','topweek'],
       time: '3:18',
       isPlaying: false,
       plays: '4.1m',
@@ -109,18 +109,67 @@ const StoreContextProvider = (props) => {
       artist: 'Coone, Da Tweekaz & Hard Driver',
       audiosrc: 'https://www.mboxdrive.com/Coone,%20Da%20Tweekaz%20and%20Hard%20Driver%20%20(The%20Elite)%20%E2%80%93%20Devil%20In%20My%20Arms%20(Extended%20Mix).mp3',
       artwork: 'https://i.imgur.com/6uOcOnY.jpg',
-      category: 'topcharts',
+      category: ['topcharts'],
       time: '3:25',
       isPlaying: false,
       plays: '1m',
       favorite: false,
-    }
+    },
+    {
+      id: 7,
+      title: 'The Bussiness Pt. 2',
+      alt: '',
+      artist: 'Tiesto',
+      audiosrc: 'https://www.mboxdrive.com/Tiësto - The Business, Pt. II.mp3',
+      artwork: 'https://i.imgur.com/9blfuXH.jpg',
+      category: ['newreleases', 'topmonth'],
+      time: '2:44',
+      isPlaying: false,
+      plays: '2.3m',
+      favorite: true
+    },
+    {
+      id: 8,
+      title: 'This Is Sick #153',
+      alt: '(DJ Set)',
+      artist: 'Sick Individuals',
+      audiosrc: 'https://www.mboxdrive.com/Sick Individuals (DJ-set) _ SLAM!.m4a',
+      artwork: 'https://i.imgur.com/nb1Q5cc.jpg',
+      category: ['radiomix'],
+      time: '1:14:11',
+      isPlaying: false,
+      favorite: true
+    },
+    {
+      id: 9,
+      title: 'Hardwell On Air 500',
+      alt: '(DJ Set)',
+      artist: 'Hardwell',
+      audiosrc: 'https://www.mboxdrive.com/Hardwell On Air 500.m4a',
+      artwork: 'https://i.imgur.com/25slv3I.jpg',
+      category: ['radiomix'],
+      time: '0:59:47', 
+      isPlaying: false,
+      favorite: false
+    }, 
+    {
+      id: 10,
+      title: 'Temperature',
+      alt: '(Radio Edit)',
+      artist: 'Kaaze',
+      audiosrc: 'https://www.mboxdrive.com/Kaaze, Nino Lucarelli - Temperature (Radio Edit).mp3',
+      artwork: 'https://i.imgur.com/5PP3r3X.jpg',
+      category: ['trending','topweek'],
+      time: '3:00', 
+      isPlaying: false, 
+      favorite: true
+    },
   ])
-
+  const [showSearch, setShowSearch] = useState(false)
 
 
   return (
-    <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks}}>
+    <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks, showSearch, setShowSearch}}>
       {props.children}
     </StoreContext.Provider>
   )

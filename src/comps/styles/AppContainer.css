@@ -1,0 +1,6 @@
+.appcontainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px auto;
+  transition: all 0.3s;
+}

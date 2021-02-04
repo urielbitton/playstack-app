@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PlayPauseBtn from './PlayPauseBtn'
 import { StoreContext } from './StoreContext'
+import './styles/HeroBanner.css'
 
 export default function HeroBanner(props) {
 

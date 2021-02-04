@@ -1,0 +1,54 @@
+.sidebar {
+  background: var(--gray);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100vh;
+  z-index: 900;
+} 
+.logocont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.logocont img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  top: -2px;
+}
+.logocont h5 {
+  color: #555;
+  font-size: 15px;
+  font-weight: 600;
+}
+.logocont h5 span {
+  font-weight: 500;
+}
+.sidebar .menu {
+  width: 100%;
+}
+.sidebar .menu h6 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0px 40px;
+}
+.sidebar .menu a {
+  font-size: 14px;
+  color: #999;
+  padding: 10px 40px;
+  display: block;
+  font-weight: 600;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+.sidebar .menu .activelink, .sidebar .menu a:hover {
+  border-left: 3px solid var(--color);
+  color: var(--color);
+}

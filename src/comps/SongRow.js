@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import PlayPauseBtn from './PlayPauseBtn'
 import {StoreContext} from './StoreContext'
+import './styles/SongRow.css'
 
 export default function SongRow(props) {
 

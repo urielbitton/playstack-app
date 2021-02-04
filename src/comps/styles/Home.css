@@ -1,0 +1,22 @@
+.homepage {
+  width: 100%;
+  overflow: scroll;
+}
+.homegrid {
+  display: grid;
+  grid-template-columns: auto 450px;
+  grid-gap: 20px;
+  padding: 20px;
+  padding-bottom: 130px;
+}
+.homeleft {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 20px;
+}
+.homeright {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}

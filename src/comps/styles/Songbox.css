@@ -1,0 +1,51 @@
+.songbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  text-align: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.songbox .imgcont {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.songbox .imgcont:hover .songboxcover {
+  opacity: 1;
+}
+.songbox .songboxcover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.songbox .songboxcover i {
+  color: #fff;
+  font-size: 32px;
+  left: 2px;
+}
+.songbox .imgcont img {
+  width: 100%;
+  height: 100%;
+}
+.songbox h6 {
+  color: #333;
+  font-size: 11px;
+}
+.songbox small {
+  font-size: 10px;
+  color: #aaa;
+  font-weight: 500;
+}

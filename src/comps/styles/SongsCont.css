@@ -1,0 +1,47 @@
+.homesongsrow .homeboxrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-gap: 7px;
+}
+.homesongsrow {
+  counter-reset: songrow;
+}
+.homebox.trendingbox {
+  grid-column: 1/-1;
+  box-shadow: none;
+} 
+.homebox {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  background: #fff;
+}
+.homeboxrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.trendingbox .homeboxrow {
+  grid-gap: 20px;
+}
+.homebox > h5 {
+  color: #444;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homebox > h5 small {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.homebox > h5 small:hover {
+  color: var(--color);
+}

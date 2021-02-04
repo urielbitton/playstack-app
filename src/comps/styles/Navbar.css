@@ -1,0 +1,90 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: calc(100% - 230px);
+  position: fixed;
+  top: 0;
+  right: 10px;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+nav .navlinks a {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-weight: 500;
+  color: #bbb;
+}
+nav a.activenavlink {
+  color: var(--color);
+  font-weight: 600;
+}
+nav label {
+  width: 250px;
+}
+nav label i {
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  left: 13px;
+  color: #aaa;
+  font-size: 14px;
+}
+nav label input {
+  width: 100%;
+  padding-left: 35px;
+  color: var(--color);
+  border-radius: 40px;
+  backdrop-filter: blur(5px);
+  background: rgba(255,255,255,0.3);
+}
+nav label input:focus {
+  background: #fff;
+}
+nav .navtools {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 7px;
+}
+nav .navtools > i {
+  color: #aaa;
+  transition: all 0.2s;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.5);
+}
+nav .navtools i:hover {
+  color: var(--color);
+  background: rgba(255,255,255,0.8);
+}
+nav .profcont {
+  border-radius: 40px;
+  padding: 3px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 5px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-left: 10px;
+  background: rgba(255,255,255,0.5);
+}
+nav .profcont:hover {
+  background: rgba(255,255,255,0.8);
+}
+nav .profcont h6 {
+  color: #777;
+  font-size: 12px;
+}
+nav .profcont img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+nav .profcont i:hover {
+  color: #aaa;
+}

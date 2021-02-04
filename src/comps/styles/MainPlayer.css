@@ -41,7 +41,16 @@
 }
 .playerhead {
   height: 100px;
-  width: 100%;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.playerhead i {
+  color: var(--color);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 3px;
 }
 .playerbody {
   display: flex;
@@ -80,3 +89,74 @@
   filter: brightness(120%);
 }
 
+/*Player Styles */
+.mainplayer {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  left: auto;
+  width: 100%;
+  z-index: 999;
+  padding-left: 10px;
+}
+.mainplayer .rhap_container  {
+  transition: all 0.2s;
+  flex-direction: row;
+  align-items: center;
+  background: none;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.7);
+}
+.rhap_header {
+  min-width: 350px!important;
+  max-width: 450px!important;
+}
+.rhap_main-controls-button, .rhap_volume-button, .rhap_button-clear {
+  color: var(--color)!important;
+}
+.rhap_progress-indicator, .rhap_progress-filled, .rhap_volume-indicator {
+  background: var(--color)!important;
+}
+.rhap_current-time, .rhap_total-time {
+  color: #777 !important;
+  font-size: 13px !important;
+} 
+.rhap_progress-bar {
+  height: 3px !important;
+}
+.rhap_repeat-button {
+  font-size: 21px!important;
+  top: 4px!important;
+}
+.miniplayericon {
+  color: var(--color);
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.miniplayericon:hover {
+  filter: brightness(120%)
+}
+.playertitles {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  top: 8px;
+}
+.playertitles img {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.playertitles h5 {
+  font-size: 13px;
+  color: #333;
+}
+.playertitles h5 small {
+  color: #777;
+  font-size: 11px;
+  display: block;
+  font-weight: 500;
+}
