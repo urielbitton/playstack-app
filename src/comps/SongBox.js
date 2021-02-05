@@ -6,7 +6,7 @@ import './styles/Songbox.css'
 export default function SongBox(props) {
   
   const {currentSong, setCurrentSong} = useContext(StoreContext)
-  const {id, artwork, title, alt, artist, audiosrc, isPlaying} = props.el
+  const {id, artwork, title, alt, artist, audiosrc, isPlaying, noPlay} = props.el
   
    
   return (
@@ -14,7 +14,7 @@ export default function SongBox(props) {
       <div className="imgcont">  
         <img src={artwork} alt=""/>
         <div className="songboxcover"> 
-          <PlayPauseBtn songinfo={props.el} onlyicon={true}/> 
+          <PlayPauseBtn songinfo={props.el} onlyicon={true} noPlay={true}/> 
         </div>
       </div>
       <h6>{title}</h6>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
-import {Inputs} from './AppInputs'
+import {AppInput} from './AppInputs'
 import SearchPage from './SearchPage'
 import { StoreContext } from './StoreContext'
 import './styles/Navbar.css'
@@ -16,7 +16,7 @@ export default function Navbar(props) {
         <NavLink exact to="/videos" activeClassName="activenavlink">Videos</NavLink>
         <NavLink exact to="/radio" activeClassName="activenavlink">Radio</NavLink>
       </div>
-      <Inputs placeholder="Type to search..." iconclass="fal fa-search" onFocus={() => setShowSearch(true)}/>
+      <AppInput placeholder="Type to search..." iconclass="fal fa-search" onFocus={() => setShowSearch(true)}/>
       <div className="navtools">
         <i className="fal fa-sliders-v"></i>
         <i className="fal fa-sign-out-alt"></i>

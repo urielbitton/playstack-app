@@ -12,16 +12,54 @@
 }
 .searchpage > i.fa-times {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 30px;
+  top: 15px;
+  right: 25px;
+  color: var(--color);
+  font-size: 33px;
   cursor: pointer;
+  padding: 7px;
 }
-.searchpagegrid {
+.searchpageflex {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   grid-gap: 20px;
-  width: 800px;
+  width: 90%;
+  margin: auto;
+  min-height: 90vh;
+}
+.searchpageflex label {
+  width: 100%;
+  margin-top: 50px;
+}
+.searchpageflex input {
+  border: none;
+  text-align: center;
+  border-radius: 0;
+  width: 100%;
+  background: none;
+  font-size: 30px;
+  color: var(--color);
+  caret-color: var(--color);
+  padding: 20px 0;
+}
+.searchpageflex input:focus {
+  box-shadow: none;
+  border: none;
+}
+.searchpageflex input::placeholder {
+  color: var(--color);
+  font-size: 30px;
+  opacity: 0.5;
+  font-weight: 500;
+}
+.searchpagegrid {
+  display: flex;
+  margin-top: 50px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  grid-gap: 30px;
+  width: 80%;
 }

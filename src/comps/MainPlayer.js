@@ -11,7 +11,7 @@ export default function MainPlayer() {
   const [mobilePlayer, setMobilePlayer] = useState(false)
   const [blurplayer, setBlurPlayer] = useState(true)
 
-  const playertitles = <div className="playertitles">
+  const playertitles = <div className="playertitles" onClick={() => setMobilePlayer(true)}>
     <img src={currentSong.artwork} alt=""/>
     <h5>{currentSong.title} {currentSong.alt}<small>{currentSong.artist}</small></h5>
   </div>

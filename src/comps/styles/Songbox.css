@@ -2,14 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 150px;
   text-align: center;
   flex-direction: column;
   cursor: pointer;
 }
 .songbox .imgcont {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 6px;
   margin-bottom: 8px;
   overflow: hidden;
@@ -33,7 +33,7 @@
 }
 .songbox .songboxcover i {
   color: #fff;
-  font-size: 32px;
+  font-size: 40px;
   left: 2px;
 }
 .songbox .imgcont img {
@@ -42,10 +42,11 @@
 }
 .songbox h6 {
   color: #333;
-  font-size: 11px;
+  font-size: 13px;
 }
 .songbox small {
-  font-size: 10px;
+  font-size: 11px;
   color: #aaa;
   font-weight: 500;
 }
+

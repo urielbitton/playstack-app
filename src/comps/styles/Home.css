@@ -20,3 +20,19 @@
   align-items: center;
   flex-direction: column;
 }
+.homeleft .songbox {
+  width: 100px;
+}
+.homeleft .songbox .imgcont {
+  width: 100px;
+  height: 100px;
+}
+.homeleft .songbox .imgcont i {
+  font-size: 32px;
+}
+.homeleft .songbox h6 {
+  font-size: 12px;
+}
+.homeleft .songbox small {
+  font-size: 10px;
+}

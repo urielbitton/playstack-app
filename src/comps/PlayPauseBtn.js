@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { StoreContext } from './StoreContext'
 
-export default function PlayPauseBtn({songinfo, children, onlyicon}) {
+export default function PlayPauseBtn({songinfo, children, onlyicon, noPlay}) {
 
   const {currentSong, setCurrentSong} = useContext(StoreContext) 
   const {id, title, alt, audiosrc, artwork, artist} = songinfo
@@ -36,12 +36,13 @@ export default function PlayPauseBtn({songinfo, children, onlyicon}) {
   } 
     
   return (  
-    <x 
+    <ins 
       onClick={playing?() => Pause():() => Play()}
+      style={{display: noPlay?"none":"block"}}
       className={/*playing?currentSong.id===songinfo.id?"far fa-pause":"far fa-play":"far fa-play"*/""}
     > 
-    {onlyicon?<i className={playing?currentSong.id===songinfo.id?"far fa-pause":"far fa-play":"far fa-play"}></i>:""}
+    {onlyicon?<i className={playing?currentSong.id===songinfo.id?"fal fa-pause":"fal fa-play":"fal fa-play"}></i>:""}
     {children}
-    </x>
+    </ins>
   )
 }

@@ -164,12 +164,57 @@ const StoreContextProvider = (props) => {
       isPlaying: false, 
       favorite: true
     },
+    {
+      id: 11,
+      title: 'Symphony',
+      alt: '(Radio Edit)',
+      artist: 'Blasterjaxx',
+      audiosrc: 'https://www.mboxdrive.com/BlasterJaxx, Jebroer - Symphony (Radio Edit).mp3',
+      artwork: 'https://i.imgur.com/fiomI6i.jpg',
+      category: ['trending','topweek'],
+      time: '2:44', 
+      isPlaying: false, 
+      favorite: false
+    },
+    {
+      id: 12,
+      title: 'Take Me Away',
+      alt: '',
+      artist: 'Stonebank & Emel',
+      audiosrc: 'https://www.mboxdrive.com/Stonebank, Emel - Take Me Away (Radio Mix).mp3',
+      artwork: 'https://i.imgur.com/tsbO844.jpg',
+      category: ['trending','topcharts'],
+      time: '2:44', 
+      isPlaying: false,  
+      favorite: false
+    },
+    
+  ])
+  const [artists, setArtists] = useState([
+    {
+      name: 'Sick Individuals',
+      favorite: true,
+      artwork: 'https://i.imgur.com/Ri4bgex.jpg',
+      genres: ['Pop','Bigroom']
+    },
+    {
+      name: 'KAAZE',
+      favorite: true,
+      artwork: 'https://i.imgur.com/LFsoQBu.jpg',
+      genres: ['Pop','Bigroom']
+    },
+    {
+      name: 'Axwell',
+      favorite: true,
+      artwork: 'https://i.imgur.com/40XK545.jpg',
+      genres: ['Progressive','Pop','Bigroom','House']
+    }
   ])
   const [showSearch, setShowSearch] = useState(false)
 
 
   return (
-    <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks, showSearch, setShowSearch}}>
+    <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks, showSearch, setShowSearch, artists, setArtists}}>
       {props.children}
     </StoreContext.Provider>
   )
