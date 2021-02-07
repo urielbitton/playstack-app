@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import {AppInput} from './AppInputs' 
 import { StoreContext } from './StoreContext'
-import SongBox from './SongBox'
+import BoxItem from './BoxItem'
 import './styles/SearchPage.css'
 
 export default function SearchPage(props) {
@@ -13,7 +13,7 @@ export default function SearchPage(props) {
 
   const searchresults = tracks && tracks.sort((a, b) => String(a.title).localeCompare(b.title)).map(el => {
     if((pattern && pattern.test(el.title.toLowerCase())) || pattern.test(el.artist.toLowerCase()) || pattern === '')
-    return <SongBox el={el} key={el.id}/>
+    return <BoxItem songinfo={el} key={el.id} title={el.title} subtitle={el.artist}/>
   })
 
   useEffect(() => { 

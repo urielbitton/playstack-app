@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import SongBox from './SongBox'
+import BoxItem from './BoxItem'
 import SongRow from './SongRow'
 import SongLargeBox from './SongLargeBox'
 import {StoreContext} from './StoreContext'
@@ -12,7 +12,7 @@ export function BigRow(props) {
 
   const bigrow = tracks && tracks.map(el => {
     if(el.category.includes(songsfilter))
-    return <SongLargeBox key={el.id} el={el} />
+    return <SongLargeBox key={el.id} songinfo={el} />
   })
  
   return (
@@ -23,14 +23,14 @@ export function BigRow(props) {
   )
 }
 
-export function MediumRow(props) {
+export function MediumRow(props) { 
 
   const {tracks} = useContext(StoreContext)
-  const {homeboxclass, homeboxtitle, songsfilter} = props
+  const {homeboxclass, homeboxtitle, songsfilter, customfilter} = props
 
   const mediumrow = tracks && tracks.map(el => {
-    if(el.category.includes(songsfilter))
-      return <SongBox key={el.id} el={el} />
+    if(el.category.includes(songsfilter) || (customfilter==='mylibrary'?el.mylibrary:false))
+      return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
   })
 
   return (
@@ -50,7 +50,7 @@ export function SmallRow(props) {
 
   const smallrow = tracks && tracks.map(el => {
     if(el.category.includes(songsfilter))
-    return <SongRow key={el.id} el={el} />
+    return <SongRow key={el.id} songinfo={el} />
   }) 
 
   return (

@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import HeroBanner from './HeroBanner'
 import {BigRow, MediumRow, SmallRow} from './SongsCont'
+import { StoreContext } from './StoreContext'
 import './styles/Home.css'
 
 export default function Home() {
+
+  const {discover} = useContext(StoreContext)
+
   return (
     <div className="homepage hidescroll">
-      <HeroBanner src="https://i.imgur.com/akxDcN6.jpg"/>
+      <HeroBanner songinfo={discover[0]} textSubtitle="Discover" textTitle='Hot new tracks this week' showsong={true}/>
       <div className="homegrid">
         <div className="homeleft">
           <MediumRow homeboxtitle="Trending Tracks" songsfilter="trending" homeboxclass="trendingbox"/>

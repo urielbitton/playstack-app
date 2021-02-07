@@ -39,7 +39,6 @@ export default function PlayPauseBtn({songinfo, children, onlyicon, noPlay}) {
     <ins 
       onClick={playing?() => Pause():() => Play()}
       style={{display: noPlay?"none":"block"}}
-      className={/*playing?currentSong.id===songinfo.id?"far fa-pause":"far fa-play":"far fa-play"*/""}
     > 
     {onlyicon?<i className={playing?currentSong.id===songinfo.id?"fal fa-pause":"fal fa-play":"fal fa-play"}></i>:""}
     {children}

@@ -12,9 +12,9 @@ export default function Sidebar() {
       <div className="menu"> 
         <h6>Browse</h6> 
         <NavLink exact to="/" activeClassName="activelink"><i className="fal fa-music"></i>Discover</NavLink>
-        <NavLink exact to="/artists" activeClassName="activelink"><i className="fal fa-microphone-stand"></i>Artists</NavLink>
-        <NavLink exact to="/genres" activeClassName="activelink"><i className="fal fa-gramophone"></i>Genres</NavLink>
-        <NavLink exact to="/labels" activeClassName="activelink"><i className="fal fa-compact-disc"></i>Record Labels</NavLink>
+        <NavLink to="/artists" activeClassName="activelink"><i className="fal fa-microphone-stand"></i>Artists</NavLink>
+        <NavLink to="/genres" activeClassName="activelink"><i className="fal fa-gramophone"></i>Genres</NavLink>
+        <NavLink to="/labels" activeClassName="activelink"><i className="fal fa-compact-disc"></i>Record Labels</NavLink>
         <NavLink exact to="/podcasts" activeClassName="activelink"><i className="fal fa-podcast"></i>Podcasts</NavLink>
         <h6>My Music</h6>
         <NavLink exact to="/library" activeClassName="activelink"><i className="fal fa-album-collection"></i>Library</NavLink>
