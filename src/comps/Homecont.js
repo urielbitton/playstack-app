@@ -1,16 +1,34 @@
 import React, { useContext, useState } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
+import AddSong from './AddSong'
 import AppPage from './AppPage'
 import Home from './Home'
-import Library from './Library'
+import MyPages from './MyPages'
 import Navbar from './Navbar'
 import SearchPage from './SearchPage'
+import OneAppPage from './OneAppPage'
 import { StoreContext } from './StoreContext'
 import './styles/Homecont.css'
 
 export default function Homecont() {
 
   const {artists, genres, labels, podcasts} = useContext(StoreContext)
+
+  const artistAppPage = artists && artists.map(el => {
+    return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
+      <OneAppPage songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
+    </Route>
+  })
+  const genresAppPage = genres && genres.map(el => {
+    return <Route path={`/genres/${el.name.toLowerCase().replaceAll(' ','')}`}>
+      <OneAppPage songinfo={el} textTitle={el.name} descript={el.descript} />
+    </Route>
+  })
+  const labelsAppPage = labels && labels.map(el => {
+    return <Route path={`/labels/${el.name.toLowerCase().replaceAll(' ','')}`}>
+      <OneAppPage songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} />
+    </Route>
+  })
 
   return (
     <div className="homecont">
@@ -33,8 +51,17 @@ export default function Homecont() {
           <AppPage page={podcasts} pagename="podcasts" textTitle="Hear the latest podcasts"/>
         </Route>
         <Route path="/library">
-          <Library />
+          <MyPages pagename="Music Library" customfilter="mylibrary"/>
         </Route>
+        <Route path="/favorites">
+          <MyPages pagename="My Favorites" customfilter="myfavorites"/>
+        </Route>
+        <Route path="/addsong">
+          <AddSong />
+        </Route>
+        {artistAppPage}
+        {genresAppPage}
+        {labelsAppPage} 
       </Switch>
     </div>
   )

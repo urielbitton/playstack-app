@@ -5,6 +5,7 @@ import Sidebar from './Sidebar'
 import './styles/AppContainer.css'
 
 export default function AppContainer() {
+
   return (
     <div className="appcontainer">
       <Sidebar />

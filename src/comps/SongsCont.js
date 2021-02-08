@@ -26,16 +26,16 @@ export function BigRow(props) {
 export function MediumRow(props) { 
 
   const {tracks} = useContext(StoreContext)
-  const {homeboxclass, homeboxtitle, songsfilter, customfilter} = props
+  const {homeboxclass, homeboxtitle, songsfilter, customfilter, viewall} = props
 
   const mediumrow = tracks && tracks.map(el => {
-    if(el.category.includes(songsfilter) || (customfilter==='mylibrary'?el.mylibrary:false))
+    if(el.category.includes(songsfilter) || (customfilter==='mylibrary'?el.mylibrary:false) || (customfilter==='myfavorites'?el.favorite:false))
       return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
   })
 
   return (
     <div className={`homebox ${homeboxclass}`}>
-      <h5>{homeboxtitle}<small>View All</small></h5>
+      <h5>{homeboxtitle}<small style={{display: viewall?"block":"none"}}>View All</small></h5>
       <div className="homeboxrow">
         {mediumrow}
       </div>

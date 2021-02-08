@@ -17,7 +17,7 @@ export default function AppPage(props) {
  
   return (
     <div className="apppage">
-      <HeroBanner songinfo={page[randnum]} textTitle={textTitle} textSubtitle={pagename} showsong={false}/>
+      <HeroBanner songinfo={page[randnum]} textTitle={textTitle} textSubtitle={pagename} showsong={false} viewall={false}/>
       <div className="appgrid"> 
         {pagerow}
       </div>

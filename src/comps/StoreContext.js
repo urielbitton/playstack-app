@@ -156,7 +156,7 @@ const StoreContextProvider = (props) => {
       category: ['radiomix'],
       time: '1:14:11',
       isPlaying: false,
-      favorite: true,
+      favorite: false,
       mylibrary: true,
     },
     {
@@ -222,35 +222,53 @@ const StoreContextProvider = (props) => {
       name: 'Sick Individuals',
       favorite: true,
       artwork: 'https://i.imgur.com/v9bsWkQ.jpg',
-      genres: ['Pop','Bigroom']
+      genres: ['Pop','Bigroom'],
+      labels: ['Revealed','Newmade'],
+      descript: `Sick Individuals is a Dutch electronic dance music act consisting of Rinze 'Ray' Hofstee and Joep 'Jim' Smeele. `
     },
     {
       id: 2,
       name: 'KAAZE',
       favorite: true,
       artwork: 'https://i.imgur.com/GQiGH6h.jpg',
-      genres: ['Pop','Bigroom']
+      genres: ['Pop','Bigroom'],
+      labels: ['Revealed'],
+      descript: `Mick Kastenholt, also known by his stage name, Kaaze is a Swedish electronic dance music producer, DJ, and songwriter.`
     },
     {
       id: 3,
       name: 'Axwell',
       favorite: true,
       artwork: 'https://i.imgur.com/mccvHVO.jpg',
-      genres: ['Progressive','Pop','Bigroom','House']
+      genres: ['Progressive','Pop','Bigroom','House'],
+      labels: ['Axtone','Capitol'],
+      descript: `Axel Christofer Hedfors (born 18 December 1977), better known by his stage name Axwell, is a Swedish DJ, record producer, remixer and owner of Axtone Records`
     },
     {
       id: 4,
       name: 'KSHMR',
       favorite: false,
       artwork: 'https://i.imgur.com/edEl4JG.jpg',
-      genres: ['Pop','Bigroom']
+      genres: ['Dharma','Spinnin Records'],
+      descript: `Niles Hollowell-Dhar (born October 6, 1988), better known by his stage name Kshmr, is an American musician,record producer and DJ of Indian heritage. `
     },
     {
       id: 5,
       name: 'DubVision',
       favorite: false,
       artwork: 'https://i.imgur.com/tMBXhsr.jpg',
-      genres: ['Deep House','Progressive','Bigroom']
+      genres: ['Deep House','Progressive','Bigroom'],
+      labels: ['Spinnin Records','Armada','STMD RCRDS'],
+      descript: `DubVision is a Dutch DJ duo consisting of brothers Victor Leicher (born 1989) and Stephan Leicher (born 1981) signed to the labels Spinnin' Records, Armada Music and Axtone.`
+    },
+    {
+      id: 5,
+      name: 'Darren Styles',
+      favorite: true, 
+      artwork: 'https://i.imgur.com/ypu6eJH.jpg',
+      genres: ['Happy Harcore','Hardstyle','Breaks'],
+      labels: ['Monstercat','Electric Fox','Rave Culture'],
+      descript: `Darren James Mew (born 23 May 1975), better known as Darren Styles, is an English record producer, DJ, singer and songwriter from Colchester, England`
     }
   ])
   const [genres, setGenres] = useState([
@@ -291,28 +309,32 @@ const StoreContextProvider = (props) => {
       name: 'Axtone',
       genres: ['Bigroom','Progressive','Bass House'],
       artwork: 'https://i.imgur.com/vx6iypW.png',
-      owner: 'Axwell'
+      owner: 'Axwell',
+      descript: `Axtone Records is the label of Swedish DJ/Producer, Axwell. Started in 2005, Axtone now signs and releases music from all across the globe.`
     },
     {
       id: 2,
       name: 'Monstercat',
       genres: ['Happy Hardcore','Progressive','Bigroom'],
       artwork: 'https://i.imgur.com/CXwgN1w.png',
-      owner: 'Mike Darlington'
+      owner: 'Mike Darlington',
+      descript: `Monstercat (formerly known as Monstercat Media) is a Canadian independent electronic music record label based in Vancouver, British Columbia.`
     },
     {
       id: 3,
       name: 'Revealed',
       genres: ['Bigroom','Progressive','Hardstyle'],
       artwork: 'https://i.imgur.com/StwC1pG.png',
-      owner: 'Hardwell'
+      owner: 'Hardwell',
+      descript: `Revealed Recordings is a Dutch record label established by Hardwell in 2010. The label is headquartered in Breda, Netherlands.`
     },
     {
       id: 4,
       name: 'Maxximize',
       genres: ['Bigroom','Progressive','Hardstyle'],
       artwork: 'https://i.imgur.com/CxaylJW.jpg',
-      owner: 'Blasterjaxx'
+      owner: 'Blasterjaxx',
+      descript: `Maxximize Records is the newest power move by Dutch EDM fan favourites Blasterjaxx. Expect a range as diverse as a Blasterjaxx set.`
     }
   ])
   const [podcasts, setPodcasts] = useState([
