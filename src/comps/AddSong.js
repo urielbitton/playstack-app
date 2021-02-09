@@ -24,11 +24,11 @@ export default function AddSong() {
   function createSong() {
     if(title.length && artist.length && audiosrc.length) {
       const tracksObj = {
-        id: db.collection("tracks").doc().id,
+        id: db.collection("music").doc().id,
         title,
         alt,
         artist, 
-        genre,
+        genre, 
         audiosrc,
         artwork,
         favorite,
@@ -38,7 +38,7 @@ export default function AddSong() {
         plays: 0,
         time: '3:31' 
       }
-      db.collection('tracks').doc('alltracks').update({
+      db.collection('music').doc('tracks').update({
         alltracks: firebase.firestore.FieldValue.arrayUnion(tracksObj) 
       }) 
       history.push('/library')
@@ -54,6 +54,14 @@ export default function AddSong() {
       <div onClick={() => setShowAdd(!showadd)}>
         <i className="far fa-music-alt"></i>
         <h5>Add Song</h5>
+      </div>
+      <div onClick={() => setShowAdd(!showadd)}>
+        <i className="far fa-music-alt"></i>
+        <h5>Add Artist</h5>
+      </div>
+      <div onClick={() => setShowAdd(!showadd)}>
+        <i className="far fa-music-alt"></i>
+        <h5>Add Label</h5>
       </div>
     </div>
     <div className="addsongcont" style={showadd?{visibility:'visible',opacity:'1'}:{visibility:'hidden',opacity:'0'}}>

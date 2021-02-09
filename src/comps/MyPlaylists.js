@@ -3,7 +3,7 @@ import BoxItem from './BoxItem'
 import {db} from './Fire'
 
 export default function MyPlaylists() {
-
+ 
   const [tracklist, setTracklist] = useState([])
 
   const tracksrow = tracklist && tracklist.map(el => {
@@ -11,7 +11,7 @@ export default function MyPlaylists() {
   })
 
   useEffect(() => {
-    db.collection('tracks').doc('alltracks').onSnapshot(snap => {
+    db.collection('music').doc('tracks').onSnapshot(snap => {
       const tracklist = snap.data().alltracks
       setTracklist(tracklist)      
     }) 
