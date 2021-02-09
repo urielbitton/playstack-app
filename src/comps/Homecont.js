@@ -9,6 +9,7 @@ import SearchPage from './SearchPage'
 import OneAppPage from './OneAppPage'
 import { StoreContext } from './StoreContext'
 import './styles/Homecont.css'
+import MyPlaylists from './MyPlaylists'
 
 export default function Homecont() {
 
@@ -16,17 +17,17 @@ export default function Homecont() {
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
+      <OneAppPage key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
     </Route>
   })
   const genresAppPage = genres && genres.map(el => {
     return <Route path={`/genres/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage songinfo={el} textTitle={el.name} descript={el.descript} />
+      <OneAppPage key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} />
     </Route>
   })
   const labelsAppPage = labels && labels.map(el => {
     return <Route path={`/labels/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} />
+      <OneAppPage key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} />
     </Route>
   })
 
@@ -58,6 +59,9 @@ export default function Homecont() {
         </Route>
         <Route path="/addsong">
           <AddSong />
+        </Route>
+        <Route path="/myplaylists">
+          <MyPlaylists />
         </Route>
         {artistAppPage}
         {genresAppPage}

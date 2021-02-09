@@ -18,6 +18,7 @@ const StoreContextProvider = (props) => {
       isPlaying: false,
       plays: '3.4m',
       favorite: true,
+      mylibrary: true,
     }
   )
   const [discover, setDiscover] = useState([
@@ -215,6 +216,20 @@ const StoreContextProvider = (props) => {
       favorite: false,
       mylibrary: true,
     },
+    {
+      id: 13,
+      title: 'Lost Yourself',
+      alt: '(Radio Edit)',
+      artist: 'Stvns & Robbie Rosen',
+      genre: ['Progressive'],
+      audiosrc: 'https://www.mboxdrive.com/Stvns, Kevin Krissen, Robbie Rosen - Lost Yourself (Radio Edit).mp3',
+      artwork: 'https://i.imgur.com/NPRKu0N.jpg',
+      category: ['trending','topcharts'],
+      time: '3:00', 
+      isPlaying: false,  
+      favorite: false,
+      mylibrary: true, 
+    },
   ])
   const [artists, setArtists] = useState([
     {
@@ -366,10 +381,11 @@ const StoreContextProvider = (props) => {
     },
   ])
   const [showSearch, setShowSearch] = useState(false)
+  const [showsidebar, setShowSidebar] = useState(true)
 
 
   return (
-    <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks, showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, podcasts, setPodcasts}}>
+    <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks, showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, podcasts, setPodcasts, showsidebar, setShowSidebar}}>
       {props.children}
     </StoreContext.Provider>
   )

@@ -3,6 +3,8 @@ import { BrowserRouter as Router,Switch,Route,Link,useHistory } from "react-rout
 import { AppInput } from './AppInputs'
 import { StoreContext } from './StoreContext'
 import './styles/AddSong.css'
+import {db} from './Fire'
+import firebase from 'firebase'
 
 export default function AddSong() {
 
@@ -20,18 +22,30 @@ export default function AddSong() {
   const history = useHistory()
 
   function createSong() {
-    setTracks(tracks => [...tracks,{
-      title,
-      alt,
-      artist, 
-      genre,
-      audiosrc,
-      artwork,
-      favorite,
-      mylibrary,
-      category: ['']
-    }])
-    history.push('/mylibrary')
+    if(title.length && artist.length && audiosrc.length) {
+      const tracksObj = {
+        id: db.collection("tracks").doc().id,
+        title,
+        alt,
+        artist, 
+        genre,
+        audiosrc,
+        artwork,
+        favorite,
+        mylibrary,
+        category: [''],
+        isPlaying: false,
+        plays: 0,
+        time: '3:31' 
+      }
+      db.collection('tracks').doc('alltracks').update({
+        alltracks: firebase.firestore.FieldValue.arrayUnion(tracksObj) 
+      }) 
+      history.push('/library')
+    }
+    else {
+      window.alert('Please provide the required fields')
+    }
   }
 
   return (

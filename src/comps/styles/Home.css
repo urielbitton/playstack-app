@@ -36,3 +36,9 @@
 .homeleft .songbox small {
   font-size: 10px;
 }
+
+@media (max-width: 1200px) {
+  .homegrid > div {
+    grid-column: 1/-1
+  }
+}

@@ -7,7 +7,7 @@ import './styles/Navbar.css'
 
 export default function Navbar(props) {
 
-  const {setShowSearch} = useContext(StoreContext)
+  const {setShowSearch, setShowSidebar} = useContext(StoreContext)
   const [showfloat, setShowFloat] = useState(false)
 
   function hideFloater() {
@@ -23,6 +23,7 @@ export default function Navbar(props) {
   return ( 
     <nav>
       <div className="navlinks">
+        <i className="fal fa-stream" onClick={() => setShowSidebar(true)}></i>
         <NavLink exact to="/" activeClassName="activenavlink">Music</NavLink>
         <NavLink exact to="/videos" activeClassName="activenavlink">Videos</NavLink>
         <NavLink exact to="/radio" activeClassName="activenavlink">Radio</NavLink>

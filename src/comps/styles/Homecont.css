@@ -4,3 +4,11 @@
   background: #fff;
   overflow-y: scroll;
 }
+.appgrid {
+  padding: 40px 30px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  grid-gap: 30px;
+}

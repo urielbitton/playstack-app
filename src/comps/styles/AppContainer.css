@@ -4,3 +4,9 @@
   grid-template-columns: 220px auto;
   transition: all 0.3s;
 }
+
+@media (max-width: 900px) {
+  .appcontainer {
+    grid-template-columns: auto;
+  }
+}

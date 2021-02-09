@@ -6,7 +6,7 @@ import './styles/MainPlayer.css'
 
 export default function MainPlayer() {
 
-  const {currentSong, setCurrentSong} = useContext(StoreContext)
+  const {currentSong, setCurrentSong, tracks, setTracks} = useContext(StoreContext)
   const [miniplayer, setMiniPlayer] = useState(false)
   const [mobilePlayer, setMobilePlayer] = useState(false)
   const [blurplayer, setBlurPlayer] = useState(true)
@@ -24,6 +24,11 @@ export default function MainPlayer() {
     currentSong.isPlaying = false
     setCurrentSong(currentSong) 
   } 
+  function addToFavorites() {
+    currentSong.favorite = !currentSong.favorite
+    setCurrentSong(currentSong)
+  }
+  console.log(currentSong)
   
   return ( 
     <div className={mobilePlayer?"mobplayercont mainplayer":"mainplayer"} style={{backdropFilter: blurplayer?"blur(8px)":"blur(1px)"}}>
@@ -39,7 +44,7 @@ export default function MainPlayer() {
             onClick={() => {setMobilePlayer(!mobilePlayer);setBlurPlayer(true)}}
           ></i>
           <div className="playerhead">
-            <i className="far fa-heart"></i>
+            <i className={currentSong.favorite?"fas fa-heart":"far fa-heart"} onClick={() => addToFavorites()}></i>
             <i className="far fa-font"></i>
             <i className="far fa-plus"></i>
           </div>

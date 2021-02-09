@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  flex-wrap: wrap;
   grid-gap: 7px;
+  width: 100%;
 }
 .homesongsrow {
   counter-reset: songrow;
@@ -10,6 +12,7 @@
 .homebox.trendingbox {
   grid-column: 1/-1;
   box-shadow: none;
+  width: 100%;
 } 
 .homebox {
   display: flex;
@@ -23,10 +26,12 @@
 .homeboxrow {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
 }
 .trendingbox .homeboxrow {
   grid-gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .homebox > h5 {
   color: #444;

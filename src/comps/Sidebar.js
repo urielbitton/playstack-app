@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
+import { StoreContext } from './StoreContext'
 import './styles/Sidebar.css'
  
 export default function Sidebar() {
+
+  const {showsidebar, setShowSidebar} = useContext(StoreContext)
+
   return (
-    <div className="sidebar hidescroll">
+    <div className="sidebar hidescroll" style={{left: showsidebar?"0":"-300px"}}>
       <div className="logocont">
         <img src="https://i.imgur.com/Lfay36v.png" alt=""/>
         <h5>Play<span>Stack</span></h5>
+        <i className="fal fa-times" onClick={() => setShowSidebar(!showsidebar)}></i>
       </div>
       <div className="menu"> 
         <h6>Browse</h6> 
