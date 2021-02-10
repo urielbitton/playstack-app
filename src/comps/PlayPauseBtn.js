@@ -19,7 +19,7 @@ export default function PlayPauseBtn({songinfo, children, onlyicon, noPlay}) {
       artist,
       isPlaying: true,
     })
-    document.querySelector('.rhap_container audio').play()
+    document.querySelector('.rhap_container audio').play() 
   }
   function Pause() {
     setPlaying(false)
