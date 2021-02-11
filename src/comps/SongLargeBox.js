@@ -4,7 +4,7 @@ import './styles/SongLargeBox.css'
 
 export default function SongLargeBox(props) {
 
-  const {title, artist, artwork, time} = props.songinfo
+  const {title, artwork, time} = props.songinfo
 
   return (
     <div className="songlargebox" style={{backgroundImage: `url(${artwork})`}}>

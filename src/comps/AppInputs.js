@@ -10,6 +10,30 @@ export function AppInput(props) {
     </label>
   )   
 }  
+
+export function AppSelect(props) {
+  const {multiple} = props
+  let options = props.options
+  let optionsdata = options && options.map((data) =>
+    <option key={data.id} value={data.name.toLowerCase()}>  
+        {data.name}
+    </option>
+  )  
+  return ( 
+    <label className="appselect">
+      <h6>{props.title}</h6>
+      {
+        multiple?
+        <select onChange={(e) => props.onChange(e)} value={props.value} multiple>
+          {optionsdata}
+        </select>:
+        <select onChange={(e) => props.onChange(e)} value={props.value}>
+          {optionsdata}
+        </select>
+      }
+    </label>
+  )
+} 
  
 export function AppSwitch(props) { 
   return (   

@@ -24,7 +24,7 @@ export default function Sidebar() {
         <h6>My Music</h6>
         <NavLink exact to="/library" activeClassName="activelink"><i className="fal fa-album-collection"></i>Library</NavLink>
         <NavLink exact to="/favorites" activeClassName="activelink"><i className="fal fa-heart"></i>My Favorites</NavLink>
-        <NavLink exact to="/addsong" activeClassName="activelink"><i className="fal fa-plus"></i>Create</NavLink>
+        <NavLink exact to="/create" activeClassName="activelink"><i className="fal fa-plus"></i>Create</NavLink>
         <h6>Playlists</h6>
         <NavLink exact to="/myplaylists" activeClassName="activelink"><i className="fal fa-list-music"></i>My Playlists</NavLink>
         <NavLink exact to="/recentlyplayed" activeClassName="activelink"><i className="fal fa-play"></i>Recently Played</NavLink>

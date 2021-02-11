@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
-import AddSong from './AddSong'
+import Create from './Create'
 import AppPage from './AppPage'
 import Home from './Home'
 import MyPages from './MyPages'
@@ -57,8 +57,8 @@ export default function Homecont() {
         <Route path="/favorites">
           <MyPages pagename="My Favorites" customfilter="myfavorites"/>
         </Route>
-        <Route path="/addsong">
-          <AddSong />
+        <Route path="/create">
+          <Create />
         </Route>
         <Route path="/myplaylists">
           <MyPlaylists />
