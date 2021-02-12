@@ -5,23 +5,7 @@ export const StoreContext = createContext()
 
 const StoreContextProvider = (props) => {
 
-  const [currentSong, setCurrentSong] = useState(
-    { 
-      id: 1,
-      title: 'Crocodile Tears',
-      alt: '(Original Mix)',
-      artist: 'Kryder', 
-      genre: ['Progressive'],
-      audiosrc: 'https://www.mboxdrive.com/Kryder - Crocodile Tears (Original Mix) www.livingelectro.com.mp3',
-      artwork: 'https://i.imgur.com/Yl2OuVY.png',
-      category: ['trending'], 
-      time: '5:31',
-      isPlaying: false,
-      plays: '3.4m',
-      favorite: true,
-      mylibrary: true,
-    }
-  )
+  const [currentSong, setCurrentSong] = useState({})
   const [discover, setDiscover] = useState([
     {
       id: 5,
@@ -44,72 +28,8 @@ const StoreContextProvider = (props) => {
 
   const [tracks, setTracks] = useState([])
   const [artists, setArtists] = useState([])
-  const [genres, setGenres] = useState([
-    {
-      id: 1,
-      name: 'Bigroom',
-      artwork: 'https://i.imgur.com/PT5awKy.jpg'
-    },
-    {
-      id: 2,
-      name: 'Progressive',
-      artwork: 'https://i.imgur.com/EB1zqgA.jpg'
-    },
-    {
-      id: 3,
-      name: 'Deep House',
-      artwork: 'https://i.imgur.com/aVCpB5u.jpg'
-    },
-    {
-      id: 4,
-      name: 'Pop',
-      artwork: 'https://i.imgur.com/YwhDmHw.jpg'
-    },
-    {
-      id: 5,
-      name: 'Happy Hardcore',
-      artwork: 'https://i.imgur.com/N3LRUDB.jpg'
-    },
-    {
-      id: 6,
-      name: 'Bass House',
-      artwork: 'https://i.imgur.com/F3aKPq9.jpg'
-    }
-  ])
-  const [labels, setLabels] = useState([
-    {
-      id: 1,
-      name: 'Axtone',
-      genres: ['Bigroom','Progressive','Bass House'],
-      artwork: 'https://i.imgur.com/vx6iypW.png',
-      owner: 'Axwell',
-      descript: `Axtone Records is the label of Swedish DJ/Producer, Axwell. Started in 2005, Axtone now signs and releases music from all across the globe.`
-    },
-    {
-      id: 2,
-      name: 'Monstercat',
-      genres: ['Happy Hardcore','Progressive','Bigroom'],
-      artwork: 'https://i.imgur.com/CXwgN1w.png',
-      owner: 'Mike Darlington',
-      descript: `Monstercat (formerly known as Monstercat Media) is a Canadian independent electronic music record label based in Vancouver, British Columbia.`
-    },
-    {
-      id: 3,
-      name: 'Revealed',
-      genres: ['Bigroom','Progressive','Hardstyle'],
-      artwork: 'https://i.imgur.com/StwC1pG.png',
-      owner: 'Hardwell',
-      descript: `Revealed Recordings is a Dutch record label established by Hardwell in 2010. The label is headquartered in Breda, Netherlands.`
-    },
-    {
-      id: 4,
-      name: 'Maxximize',
-      genres: ['Bigroom','Progressive','Hardstyle'],
-      artwork: 'https://i.imgur.com/CxaylJW.jpg',
-      owner: 'Blasterjaxx',
-      descript: `Maxximize Records is the newest power move by Dutch EDM fan favourites Blasterjaxx. Expect a range as diverse as a Blasterjaxx set.`
-    }
-  ])
+  const [genres, setGenres] = useState([])
+  const [labels, setLabels] = useState([])
   const [podcasts, setPodcasts] = useState([
     {
       id: 8,
@@ -140,22 +60,41 @@ const StoreContextProvider = (props) => {
   ])
   const [showSearch, setShowSearch] = useState(false)
   const [showsidebar, setShowSidebar] = useState(true)
+  const [charts, setCharts] = useState([
+    {name:'Top Charts'},
+    {name:'New Releases'},
+    {name:'Trending'},
+    {name:'Top Week'},
+    {name:'Top Month'} 
+  ])
 
   useEffect(() => {
+    let flag = true
     db.collection('music').doc('tracks').onSnapshot(snap => {
-      const tracklist = snap.data().alltracks
-      setTracks(tracklist)
+      setTracks(snap.data().alltracks)
     })
     db.collection('music').doc('artists').onSnapshot(snap => {
-      const artistlist = snap.data().allartists
-      setArtists(artistlist) 
+      setArtists(snap.data().allartists) 
     })
-  },[])
+    db.collection('music').doc('labels').onSnapshot(snap => {
+      setLabels(snap.data().alllabels) 
+    })
+    db.collection('music').doc('genres').onSnapshot(snap => {
+      setGenres(snap.data().allgenres) 
+    })
+    db.collection('music').doc('currentsong').onSnapshot(snap => {
+      setCurrentSong(snap.data())
+      if(flag) {
+        document.querySelector('.rhap_container audio').pause() 
+        flag = false
+      }
+    }) 
+  },[])  
 
   return (
     <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks,
      showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, 
-     podcasts, setPodcasts, showsidebar, setShowSidebar}}>
+     podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts}}>
       {props.children}
     </StoreContext.Provider>
   )

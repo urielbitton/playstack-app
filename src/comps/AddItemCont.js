@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function AddItemCont({children, showadd, setShowAdd, title}) {
+export default function AddItemCont({children, showadd, setShowAdd, title, iconclass}) {
 
   return (
-    <div className="additemcont" style={showadd?{visibility:'visible',opacity:'1'}:{visibility:'hidden',opacity:'0'}}>
-      <div className="additemdiv" style={{top: showadd?"0":"20px"}}>
+    <div className="additemcont" onClick={() => setShowAdd(!showadd)} style={showadd?{visibility:'visible',opacity:'1'}:{visibility:'hidden',opacity:'0'}}>
+      <div className="additemdiv" onClick={(e) => e.stopPropagation()} style={{top: showadd?"0":"20px"}}>
         <i className="fal fa-times" onClick={() => setShowAdd(!showadd)}></i>
-        <h4>{title}</h4>
+        <h4><i className={iconclass}></i>{title}</h4>
         <div className="spacer"></div>
         {children}
       </div>

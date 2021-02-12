@@ -6,9 +6,9 @@ export default function Create() {
 
   return (
     <div className="chooseaddcont">
-      <AddSong iconclass="far fa-music-alt"/>
-      <AddArtist iconclass="far fa-microphone-stand"/>
-      <AddLabel iconclass="far fa-compact-disc"/>
+      <AddSong iconclass="fal fa-music-alt"/>
+      <AddArtist iconclass="fal fa-microphone-stand"/>
+      <AddLabel iconclass="fal fa-compact-disc"/>
     </div>
   )
 }

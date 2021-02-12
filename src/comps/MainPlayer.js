@@ -1,12 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import {StoreContext} from './StoreContext' 
 import './styles/MainPlayer.css'
+import {db} from './Fire'
 
 export default function MainPlayer() {
 
-  const {currentSong, setCurrentSong} = useContext(StoreContext)
+  const {currentSong} = useContext(StoreContext)
   const [miniplayer, setMiniPlayer] = useState(false)
   const [mobilePlayer, setMobilePlayer] = useState(false)
   const [blurplayer, setBlurPlayer] = useState(true)
@@ -17,16 +18,13 @@ export default function MainPlayer() {
   </div>
 
   function PlaySong() {
-    currentSong.isPlaying = true
-    setCurrentSong(currentSong) 
+    db.collection('music').doc('currentsong').update({isPlaying:true})
   }  
   function PauseSong() {
-    currentSong.isPlaying = false
-    setCurrentSong(currentSong) 
+    db.collection('music').doc('currentsong').update({isPlaying:false})
   } 
   function addToFavorites() {
-    currentSong.favorite = !currentSong.favorite
-    setCurrentSong(currentSong)
+    
   }
   
   return ( 
@@ -53,7 +51,7 @@ export default function MainPlayer() {
             <h6>{currentSong.artist}</h6>
           </div>
         </>
-        :""
+        :"" 
       }
       <AudioPlayer
         src={currentSong.audiosrc}

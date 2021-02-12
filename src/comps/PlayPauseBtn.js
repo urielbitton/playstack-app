@@ -1,46 +1,43 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useState, useContext} from 'react'
+import {db} from './Fire'
 import { StoreContext } from './StoreContext'
 
 export default function PlayPauseBtn({songinfo, children, onlyicon, noPlay}) {
 
-  const {currentSong, setCurrentSong} = useContext(StoreContext) 
+  const {currentSong} = useContext(StoreContext)
   const {id, title, alt, audiosrc, artwork, artist} = songinfo
-  const [playing, setPlaying] = useState(false)
-  
 
   function Play() {
-    setPlaying(true)
-    setCurrentSong({
+    db.collection('music').doc('currentsong').update({
       id,
       title,
       alt,
       audiosrc,
       artwork,
       artist,
-      isPlaying: true,
+      isPlaying: true
     })
     document.querySelector('.rhap_container audio').play() 
   }
   function Pause() {
-    setPlaying(false)
-    setCurrentSong({
+    db.collection('music').doc('currentsong').update({
       id,
-      title, 
+      title,
       alt,
       audiosrc,
       artwork,
-      artist, 
-      isPlaying: false,
-    }) 
+      artist,
+      isPlaying: false
+    })
     document.querySelector('.rhap_container audio').pause()
   } 
-    
+     
   return (  
     <ins 
-      onClick={playing?() => Pause():() => Play()}
+      onClick={currentSong.isPlaying?() => Pause():() => Play()}
       style={{display: noPlay?"none":"block"}}
     > 
-    {onlyicon?<i className={playing?currentSong.id===songinfo.id?"fal fa-pause":"fal fa-play":"fal fa-play"}></i>:""}
+    {onlyicon?<i className={currentSong.isPlaying?currentSong.id===id?"fal fa-pause":"fal fa-play":"fal fa-play"}></i>:""}
     {children}
     </ins>
   )

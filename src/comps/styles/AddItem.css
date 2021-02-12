@@ -24,16 +24,24 @@
 }
 .additembtn {
   display: flex;
-  border-radius: 5px;
-  padding: 10px 20px;
-  border: 2px solid var(--color);
-  color: var(--color);
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color);
+  color: #fff;
   cursor: pointer;
   transition: all 0.2s;
 }
 .additembtn:hover {
-  background: var(--color);
-  color: #fff;
+  filter: brightness(110%);
+}
+.additembtn h5 {
+  font-size: 18px;
+  font-weight: 500;
 }
 .additembtn i {
   margin-right: 10px;
@@ -61,8 +69,12 @@
   color: #555;
 }
 .additemdiv h4 {
-  color: #333;
+  color: var(--color);
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
 }
 .additemdiv button {
   top: 10px;
