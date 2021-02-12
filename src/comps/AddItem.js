@@ -10,6 +10,7 @@ export function AddSong(props) {
   const [alt, setAlt] = useState('')
   const [artist, setArtist] = useState('')
   const [genre, setGenre] = useState('')
+  const [label, setLabel] = useState('')
   const [audiosrc, setAudioSrc] = useState('')
   const [artwork, setArtwork] = useState('')
   const [favorite, setFavorite] = useState(false)
@@ -30,7 +31,8 @@ export function AddSong(props) {
           <AppInput title="Mix Type (e.g. Radio Edit)" onChange={(e) => setAlt(e.target.value)} value={alt}/>
           <AppInput title="Artist Name" onChange={(e) => setArtist(e.target.value)} value={artist}/>
           <AppInput title="Genre" onChange={(e) => setGenre(e.target.value)} value={genre}/>
-          <AppSelect title="Categories" onChange={(e) => setCategory(e.target.value)} options={[{name:'Top Charts'},{name:'New Releases'},{name:'Trending'},{name:'Top Week'},{name:'Top Month'}]} multiple={true}/>
+          <AppInput title="Label" onChange={(e) => setLabel(e.target.value)} value={label}/>
+          <AppSelect title="Categories" onChange={(e) => setCategory(Array.from(e.target.selectedOptions, option => option.value))} options={[{name:'Top Charts'},{name:'New Releases'},{name:'Trending'},{name:'Top Week'},{name:'Top Month'}]} multiple={true}/>
           <AppInput title="Audio Source" onChange={(e) => setAudioSrc(e.target.value)} value={audiosrc}/>
           <AppInput title="Artwork" onChange={(e) => setArtwork(e.target.value)} value={artwork}/>
           <AppInput title="Duration" onChange={(e) => setTime(e.target.value)} value={time}/>

@@ -5,7 +5,7 @@ import firebase from 'firebase'
 
 export function CreateSong(props) {
 
-  const {title,alt,artist,genre,audiosrc,artwork,favorite,mylibrary,category,time} = props
+  const {title,alt,artist,genre,label,audiosrc,artwork,favorite,mylibrary,category,time} = props
   let history = useHistory()
 
   function create() {
@@ -16,11 +16,12 @@ export function CreateSong(props) {
         alt,
         artist, 
         genre, 
+        label,
         audiosrc, 
         artwork, 
         favorite,
         mylibrary,
-        category: [''],
+        category,
         isPlaying: false,
         plays: 0,
         time 

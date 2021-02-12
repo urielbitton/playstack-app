@@ -15,7 +15,7 @@ export function AppSelect(props) {
   const {multiple} = props
   let options = props.options
   let optionsdata = options && options.map((data) =>
-    <option key={data.id} value={data.name.toLowerCase()}>  
+    <option key={data.id} value={data.name.toLowerCase().replaceAll(' ','')}>  
         {data.name}
     </option>
   )  
