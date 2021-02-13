@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PlayPauseBtn from './PlayPauseBtn'
-import {StoreContext} from './StoreContext'
 import './styles/SongRow.css'
 
 export default function SongRow(props) {
 
-  const {currentSong, setCurrentSong} = useContext(StoreContext)
   const {id, title, alt, audiosrc, artist, artwork, time} = props.songinfo
 
   return (

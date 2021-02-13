@@ -17,7 +17,7 @@ export default function Homecont() {
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
+      <OneAppPage pageurl="artists" key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
     </Route>
   })
   const genresAppPage = genres && genres.map(el => {
