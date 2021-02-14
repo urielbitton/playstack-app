@@ -6,9 +6,6 @@
   grid-gap: 7px;
   width: 100%;
 }
-.homesongsrow {
-  counter-reset: songrow;
-}
 .homebox.trendingbox {
   grid-column: 1/-1;
   box-shadow: none;

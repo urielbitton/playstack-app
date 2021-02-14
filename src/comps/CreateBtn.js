@@ -5,7 +5,7 @@ import firebase from 'firebase'
 
 export function CreateSong(props) {
 
-  const {title,alt,artist,genre,label,audiosrc,artwork,favorite,mylibrary,category,time} = props
+  const {title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time} = props
   let history = useHistory()
 
   function create() {
@@ -16,15 +16,15 @@ export function CreateSong(props) {
         alt,
         artist, 
         genre, 
-        label,
+        label, 
         audiosrc, 
         artwork, 
         favorite,
-        mylibrary,
+        mylibrary: true,
         category,
         isPlaying: false,
         plays: 0,
-        time 
+        time,
       }
       db.collection('music').doc('tracks').update({
         alltracks: firebase.firestore.FieldValue.arrayUnion(tracksObj) 
@@ -46,7 +46,7 @@ export function CreateArtist(props) {
 
   function create() {
     if(name.length) {
-      const tracksObj = {
+      const artistObj = {
         id: db.collection("music").doc().id,
         name,
         artwork,
@@ -56,7 +56,7 @@ export function CreateArtist(props) {
         favorite
       }
       db.collection('music').doc('artists').update({
-        allartists: firebase.firestore.FieldValue.arrayUnion(tracksObj) 
+        allartists: firebase.firestore.FieldValue.arrayUnion(artistObj) 
       }).then(res => {
         history.replace('/artists')
       })  
@@ -75,7 +75,7 @@ export function CreateLabel(props) {
 
   function create() {
     if(name.length) {
-      const tracksObj = {
+      const labelsObj = {
         id: db.collection("music").doc().id,
         name,
         artwork,
@@ -84,7 +84,7 @@ export function CreateLabel(props) {
         owner
       }
       db.collection('music').doc('labels').update({
-        alllabels: firebase.firestore.FieldValue.arrayUnion(tracksObj) 
+        alllabels: firebase.firestore.FieldValue.arrayUnion(labelsObj) 
       }).then(res => {
         history.replace('/labels')
       }) 

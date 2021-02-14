@@ -9,15 +9,15 @@ export default function Tabber(props) {
   const headersrow = tabheaders && tabheaders.map(el => {
     return <NavLink 
       exact to={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
-      activeClassName="tabberactivelink"
-      >
+      activeClassName="tabberactivelink">
       <h4>{el}</h4>
       <hr />
     </NavLink>
-  })
+  }) 
   const tabbercontents = tabheaders && tabheaders.map(el => {
     return <Route 
-      exact path={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
+      exact 
+      path={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
       >
       <TrackRow artistfilter={textTitle}/>
     </Route>

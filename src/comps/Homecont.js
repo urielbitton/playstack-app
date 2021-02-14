@@ -10,10 +10,11 @@ import OneAppPage from './OneAppPage'
 import { StoreContext } from './StoreContext'
 import './styles/Homecont.css'
 import MyPlaylists from './MyPlaylists'
+import { AddArtist, AddLabel, AddSong } from './AddItem'
 
 export default function Homecont() {
 
-  const {artists, genres, labels, podcasts} = useContext(StoreContext)
+  const {artists, genres, labels, podcasts, showAdd} = useContext(StoreContext)
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
@@ -35,6 +36,9 @@ export default function Homecont() {
     <div className="homecont">
       <Navbar />
       <SearchPage /> 
+      <AddSong />
+      <AddArtist />
+      <AddLabel />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -52,13 +56,10 @@ export default function Homecont() {
           <AppPage page={podcasts} pagename="podcasts" textTitle="Hear the latest podcasts"/>
         </Route>
         <Route path="/library">
-          <MyPages pagename="Music Library" customfilter="mylibrary"/>
+          <MyPages pagename="Music Library" songsfilter="mylibrary"/>
         </Route>
         <Route path="/favorites">
-          <MyPages pagename="My Favorites" customfilter="myfavorites"/>
-        </Route>
-        <Route path="/create">
-          <Create />
+          <MyPages pagename="My Favorites" />
         </Route>
         <Route path="/myplaylists">
           <MyPlaylists />

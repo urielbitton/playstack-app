@@ -7,7 +7,7 @@ nav {
   position: fixed;
   top: 0;
   right: 10px;
-  z-index: 999;
+  z-index: 1000;
   backdrop-filter: blur(10px);
 }
 nav .navlinks a {
@@ -128,6 +128,65 @@ nav .profcont i:hover {
 }
 .navlinks .fa-stream {
   display: none;
+}
+nav .createcont {
+  margin-right: 20px;
+  border-radius: 40px;
+  padding: 8px 15px;
+  background: rgba(255,255,255,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+nav .createcont:hover {
+  background: rgba(255,255,255,0.8);
+}
+nav .createcont h6 {
+  color: #777;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
+}
+nav .createcont h6 i:hover {
+  background: none;
+  color: #777;
+}
+nav .createcont:hover .createmenudiv {
+  visibility: visible;
+  opacity: 1;
+  top: 35px;
+}
+nav .createmenudiv {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 300px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.additembtn {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #555;
+}
+.additembtn:hover {
+  background: var(--color);
+  color: #fff;
+}
+.additembtn h5 {
+  
+}
+.additembtn i {
+  margin-right: 10px;
 }
 
 @media (max-width: 900px) {

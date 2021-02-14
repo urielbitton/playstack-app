@@ -10,9 +10,10 @@ export function BigRow(props) {
   const {tracks} = useContext(StoreContext)
   const {homeboxclass, homeboxtitle, songsfilter} = props
 
-  const bigrow = tracks && tracks.map(el => {
-    if(el.category.includes(songsfilter))
-    return <SongLargeBox key={el.id} songinfo={el} />
+  const bigrow = tracks && tracks
+    .filter(x => x.category.includes(songsfilter))
+    .map(el => {
+      return <SongLargeBox key={el.id} songinfo={el} />
   })
  
   return (
@@ -26,16 +27,20 @@ export function BigRow(props) {
 export function MediumRow(props) { 
 
   const {tracks} = useContext(StoreContext)
-  const {homeboxclass, homeboxtitle, songsfilter, customfilter, viewall} = props
+  const {homeboxclass, homeboxtitle, songsfilter} = props
 
-  const mediumrow = tracks && tracks.map(el => {
-    if(el.category.includes(songsfilter) || (customfilter==='mylibrary'?el.mylibrary:false) || (customfilter==='myfavorites'?el.favorite:false))
+  const mediumrow = tracks && tracks
+    .filter(x => x.category.includes(songsfilter))
+    .map(el => {
       return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
   })
 
   return (
     <div className={`homebox ${homeboxclass}`}>
-      <h5>{homeboxtitle}<small style={{display: viewall?"block":"none"}}>View All</small></h5>
+      <h5>
+        {homeboxtitle}
+        <small>{tracks.filter(x => x.category.includes(songsfilter)).length} tracks</small>
+      </h5>
       <div className="homeboxrow">
         {mediumrow}
       </div>
@@ -48,9 +53,10 @@ export function SmallRow(props) {
   const {tracks} = useContext(StoreContext)
   const {homeboxclass, homeboxtitle, songsfilter} = props
 
-  const smallrow = tracks && tracks.map(el => {
-    if(el.category.includes(songsfilter))
-    return <SongRow key={el.id} songinfo={el} />
+  const smallrow = tracks && tracks
+    .filter(x => x.category.includes(songsfilter))
+    .map((el,i) => {
+    return <SongRow key={el.id} songinfo={el} count={i+1} />
   }) 
 
   return (

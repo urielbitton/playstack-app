@@ -10,13 +10,6 @@
 .songrow:hover {
   background: #f9f9f9;
 }
-.songrow::before {
-  counter-increment: songrow;
-  content: counter(songrow);
-  position: absolute;
-  color: #aaa;
-  font-size: 14px;
-}
 .songrow > div {
   display: flex;
   justify-content: flex-start;
@@ -27,7 +20,6 @@
   height: 40px;
   border-radius: 6px;
   margin-right: 15px;
-  margin-left: 30px;
 }
 .songrow h6 {
   font-size: 12px;
@@ -55,6 +47,7 @@
 }
 .songrow i.fa-play, .songrow i.fa-pause {
   color: var(--color);
+  font-weight: 500;
 }
 .songrow i.fa-ellipsis-h {
   color: #aaa;
@@ -62,4 +55,26 @@
 }
 .songrow i.fa-ellipsis-h:hover {
   color: var(--color);
+}
+.edittrackcont {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 150px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.edittrackcont h6 {
+  padding: 5px;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.edittrackcont h6:hover {
+  color: var(--color);
+}
+.edittrackcont h6 i.fa-play {
+  color: inherit
 }

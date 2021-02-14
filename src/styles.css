@@ -112,5 +112,10 @@ input::placeholder {
 hr {
   border: none;
 }
-
-
+.linkable {
+  cursor: pointer;
+}
+.linkable:hover {
+  text-decoration: underline;
+  color: var(--color);
+}

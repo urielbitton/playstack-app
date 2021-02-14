@@ -60,6 +60,7 @@ const StoreContextProvider = (props) => {
   ])
   const [showSearch, setShowSearch] = useState(false)
   const [showsidebar, setShowSidebar] = useState(true)
+  const [showAdd, setShowAdd] = useState(0)
   const [charts, setCharts] = useState([
     {name:'Top Charts'},
     {name:'New Releases'},
@@ -94,7 +95,7 @@ const StoreContextProvider = (props) => {
   return (
     <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks,
      showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, 
-     podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts}}>
+     podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts, showAdd, setShowAdd}}>
       {props.children}
     </StoreContext.Provider>
   )

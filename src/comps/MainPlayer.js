@@ -23,9 +23,6 @@ export default function MainPlayer() {
   function PauseSong() {
     db.collection('music').doc('currentsong').update({isPlaying:false})
   } 
-  function addToFavorites() {
-    
-  }
   
   return ( 
     <div className={mobilePlayer?"mobplayercont mainplayer":"mainplayer"} style={{backdropFilter: blurplayer?"blur(8px)":"blur(1px)"}}>
@@ -41,7 +38,7 @@ export default function MainPlayer() {
             onClick={() => {setMobilePlayer(!mobilePlayer);setBlurPlayer(true)}}
           ></i>
           <div className="playerhead">
-            <i className={currentSong.favorite?"fas fa-heart":"far fa-heart"} onClick={() => addToFavorites()}></i>
+            <i className={currentSong.favorite?"fas fa-heart":"far fa-heart"}></i>
             <i className="far fa-font"></i>
             <i className="far fa-plus"></i>
           </div>

@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
 import {AppInput} from './AppInputs'
-import SearchPage from './SearchPage'
 import { StoreContext } from './StoreContext'
 import './styles/Navbar.css'
 
 export default function Navbar(props) {
 
-  const {setShowSearch, setShowSidebar} = useContext(StoreContext)
+  const {setShowSearch, setShowSidebar, setShowAdd} = useContext(StoreContext)
   const [showfloat, setShowFloat] = useState(false)
 
   function hideFloater() {
@@ -30,6 +29,14 @@ export default function Navbar(props) {
       </div>
       <AppInput placeholder="Type to search..." iconclass="fal fa-search" onFocus={() => setShowSearch(true)}/>
       <div className="navtools">
+        <div className="createcont">
+          <h6><i className="far fa-plus"></i>Create</h6>
+          <div className="createmenudiv">
+            <div onClick={() => setShowAdd(1)} className="additembtn"><h5><i className="far fa-music-alt"></i>Create Song</h5></div>
+            <div onClick={() => setShowAdd(2)} className="additembtn"><h5><i className="far fa-microphone-stand"></i>Create Artist</h5></div>
+            <div onClick={() => setShowAdd(3)} className="additembtn"><h5><i className="far fa-compact-disc"></i>Create Label</h5></div>
+          </div>
+        </div>
         <i className="fal fa-sliders-v" onClick={(e) => {e.stopPropagation();setShowFloat(!showfloat)}}></i>
         <i className="fal fa-sign-out-alt"></i>
         <div className="profcont">

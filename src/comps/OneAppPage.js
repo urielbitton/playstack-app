@@ -12,6 +12,7 @@ export default function OneAppPage(props) {
       <HeroBanner songinfo={songinfo} textTitle={textTitle} descript={descript} genres={genres} labels={labels}/>
       <div className="appgrid">
         <Tabber pageurl={pageurl} suburl={textTitle.toLowerCase().replaceAll(' ','')} tabheaders={['New Releases','Trending','Top Charts','By Label','By Genre']} textTitle={textTitle}/>
+        <div className="spacerl"></div>
       </div>
     </div>
   )

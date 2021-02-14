@@ -13,7 +13,7 @@ export default function Home() {
       <HeroBanner songinfo={discover[0]} textSubtitle="Discover" textTitle='Hot new tracks this week' showsong={true}/>
       <div className="homegrid">
         <div className="homeleft">
-          <MediumRow homeboxtitle="Trending Tracks" songsfilter="trending" homeboxclass="trendingbox" viewall={true}/>
+          <MediumRow homeboxtitle="Trending Tracks" songsfilter="trending" homeboxclass="trendingbox" />
           <SmallRow homeboxtitle="New Releases" songsfilter="newreleases" homeboxclass="homesongsrow"/>
           <SmallRow homeboxtitle="Top Charts" songsfilter="topcharts" homeboxclass="homesongsrow"/>
           <SmallRow homeboxtitle="Top Month" songsfilter="topmonth" homeboxclass="homesongsrow"/>
