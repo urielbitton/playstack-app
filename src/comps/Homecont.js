@@ -1,20 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
-import Create from './Create'
 import AppPage from './AppPage'
 import Home from './Home'
 import MyPages from './MyPages'
 import Navbar from './Navbar'
-import SearchPage from './SearchPage'
 import OneAppPage from './OneAppPage'
 import { StoreContext } from './StoreContext'
 import './styles/Homecont.css'
 import MyPlaylists from './MyPlaylists'
-import { AddArtist, AddLabel, AddSong } from './AddItem'
+import Modals from './Modals'
 
+ 
 export default function Homecont() {
 
-  const {artists, genres, labels, podcasts, showAdd} = useContext(StoreContext)
+  const {artists, genres, labels, podcasts} = useContext(StoreContext)
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
@@ -35,10 +34,7 @@ export default function Homecont() {
   return (
     <div className="homecont">
       <Navbar />
-      <SearchPage /> 
-      <AddSong />
-      <AddArtist />
-      <AddLabel />
+      <Modals />
       <Switch>
         <Route exact path="/">
           <Home />

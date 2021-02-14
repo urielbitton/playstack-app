@@ -5,13 +5,13 @@ import firebase from 'firebase'
 
 export function CreateSong(props) {
 
-  const {title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time} = props
+  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle} = props
   let history = useHistory()
-
+ 
   function create() {
     if(title.length && artist.length && audiosrc.length) {
       const tracksObj = {
-        id: db.collection("music").doc().id,
+        id: id.length?id:db.collection("music").doc().id,
         title,
         alt,
         artist, 
@@ -23,7 +23,7 @@ export function CreateSong(props) {
         mylibrary: true,
         category,
         isPlaying: false,
-        plays: 0,
+        plays: plays.length?plays:0,
         time,
       }
       db.collection('music').doc('tracks').update({
@@ -36,7 +36,7 @@ export function CreateSong(props) {
       window.alert('Please provide the required fields')
     }
   }
-  return <button onClick={() => create()}>Add Song</button>
+  return <button onClick={() => create()}>{btntitle} Song</button>
 }
 
 export function CreateArtist(props) {

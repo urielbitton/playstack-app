@@ -16,7 +16,7 @@ export default function AppContainer() {
     else if(window.innerWidth >= 900) {
       setShowSidebar(true)
     }  
-  },[])
+  },[]) 
 
   return (
     <div className="appcontainer">

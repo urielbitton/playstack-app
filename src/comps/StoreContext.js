@@ -22,7 +22,6 @@ const StoreContextProvider = (props) => {
       favorite: true,
       textTitle: 'Hot new tracks this week',
       textSubtitle: 'Discover',
-      mylibrary: true,
     }
   ])
 
@@ -62,12 +61,13 @@ const StoreContextProvider = (props) => {
   const [showsidebar, setShowSidebar] = useState(true)
   const [showAdd, setShowAdd] = useState(0)
   const [charts, setCharts] = useState([
-    {name:'Top Charts'},
+    {name:'Top Charts'}, 
     {name:'New Releases'},
     {name:'Trending'},
     {name:'Top Week'},
     {name:'Top Month'} 
   ])
+  const [editData, setEditData] = useState({}) 
 
   useEffect(() => {
     let flag = true
@@ -95,7 +95,8 @@ const StoreContextProvider = (props) => {
   return (
     <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks,
      showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, 
-     podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts, showAdd, setShowAdd}}>
+     podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts, showAdd, setShowAdd,
+     editData, setEditData}}>
       {props.children}
     </StoreContext.Provider>
   )

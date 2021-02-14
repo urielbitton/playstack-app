@@ -3,6 +3,7 @@ import AddItemCont from './AddItemCont'
 import {AppInput, AppSelect} from './AppInputs'
 import {CreateSong, CreateArtist, CreateLabel} from './CreateBtn'
 import {StoreContext} from './StoreContext'
+import './styles/AddItem.css'
 
 export function AddSong(props) {
 
@@ -38,7 +39,7 @@ export function AddSong(props) {
           <AppInput type="checkbox" title="Favorite" onChange={(e) => setFavorite(e.target.value)} value={favorite}/>
         </div>
       </div>
-      <CreateSong title={title} alt={alt} artist={artist} genre={genre} label={label} audiosrc={audiosrc} artwork={artwork} favorite={favorite} category={category} time={time} />
+      <CreateSong title={title} alt={alt} artist={artist} genre={genre} label={label} audiosrc={audiosrc} artwork={artwork} favorite={favorite} category={category} time={time} btntitle="Add" />
     </AddItemCont> 
   )
 } 
