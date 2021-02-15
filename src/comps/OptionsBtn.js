@@ -6,7 +6,7 @@ export default function OptionsBtn(props) {
 
   const {setShowAdd, setEditData} = useContext(StoreContext)
   const [optsedit, setOptsEdit] = useState(false) 
-  const {id, title, alt, audiosrc, artist, genre, artwork, time, category, isPlaying, plays, favorite} = props.songinfo
+  const {id, title, alt, audiosrc, artist, genre, label, artwork, time, category, isPlaying, plays, favorite} = props.songinfo
   
   function sendEditData() {
     setEditData({
@@ -15,6 +15,7 @@ export default function OptionsBtn(props) {
       alt, 
       artist, 
       genre,
+      label,
       audiosrc, 
       artwork, 
       category,

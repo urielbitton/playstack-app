@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import {db} from './Fire'
 import firebase from 'firebase'
+import { StoreContext } from './StoreContext'
 
 export function CreateSong(props) {
-
-  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle} = props
+ 
+  const {setShowAdd} = useContext(StoreContext)
+  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle,mode} = props
   let history = useHistory()
+  const [alltracks, setAllTracks] = useState([])
  
   function create() {
     if(title.length && artist.length && audiosrc.length) {
       const tracksObj = {
-        id: id.length?id:db.collection("music").doc().id,
+        id: mode==='edit'?id:db.collection("music").doc().id,
         title,
         alt,
         artist, 
@@ -23,19 +26,42 @@ export function CreateSong(props) {
         mylibrary: true,
         category,
         isPlaying: false,
-        plays: plays.length?plays:0,
+        plays: mode==='edit'?plays:0,
         time,
+      } 
+      if(mode==='edit') {
+        alltracks && alltracks.map(el => {
+          if(el.id === id) {
+            let itemindex = alltracks.indexOf(el)
+            alltracks[itemindex] = tracksObj
+            console.log(itemindex)
+          }
+        })
+        db.collection('music').doc('tracks').update({
+          alltracks: alltracks
+        })
+        setShowAdd(0)
       }
-      db.collection('music').doc('tracks').update({
-        alltracks: firebase.firestore.FieldValue.arrayUnion(tracksObj) 
-      }).then(res => {
-        history.replace('/library')
-      }) 
+      else {
+        db.collection('music').doc('tracks').update({
+          alltracks: firebase.firestore.FieldValue.arrayUnion(tracksObj)
+        }).then(res => {
+            history.replace('/library')
+        })
+      }
     } 
     else {
       window.alert('Please provide the required fields')
     }
   }
+
+  useEffect(() => {
+    db.collection('music').doc('tracks').onSnapshot(snap => {
+      let tracks = snap.data().alltracks
+      setAllTracks(tracks)
+    })
+  },[])
+
   return <button onClick={() => create()}>{btntitle} Song</button>
 }
 

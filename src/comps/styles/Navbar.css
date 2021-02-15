@@ -7,7 +7,7 @@ nav {
   position: fixed;
   top: 0;
   right: 10px;
-  z-index: 1000;
+  z-index: 999;
   backdrop-filter: blur(10px);
 }
 nav .navlinks a {
@@ -159,7 +159,7 @@ nav .createcont:hover .createmenudiv {
   visibility: visible;
   opacity: 1;
   top: 35px;
-}
+} 
 nav .createmenudiv {
   position: absolute;
   top: 45px;
@@ -167,6 +167,7 @@ nav .createmenudiv {
   width: 300px;
   border-radius: 10px;
   background: rgba(255,255,255,0.9);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
   overflow: hidden;
   visibility: hidden;
   opacity: 0;

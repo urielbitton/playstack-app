@@ -7,7 +7,7 @@ export default function AddItemCont({children, showadd, setShowAdd, title, iconc
       <div className="additemdiv" onClick={(e) => e.stopPropagation()} style={{top: showadd?"0":"20px"}}>
         <i className="fal fa-times" onClick={() => setShowAdd(0)}></i>
         <h4><i className={iconclass}></i>{title}</h4>
-        <div className="spacer"></div> 
+        <div className="spacers"></div> 
         {children}
       </div>
     </div> 
