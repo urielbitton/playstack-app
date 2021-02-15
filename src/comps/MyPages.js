@@ -9,7 +9,7 @@ export default function MyPages(props) {
     <div className="mypages">
       <div className="spacer"></div>
       <div className="appgrid homeleft">
-        <MediumRow homeboxtitle={pagename} songsfilter={songsfilter} homeboxclass="trendingbox"/> 
+        <MediumRow homeboxtitle={pagename} songsfilter={songsfilter} homeboxclass="trendingbox" view="listview"/> 
       </div>
     </div>
   )

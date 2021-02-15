@@ -27,7 +27,7 @@ export function BigRow(props) {
 export function MediumRow(props) { 
 
   const {tracks} = useContext(StoreContext)
-  const {homeboxclass, homeboxtitle, songsfilter} = props
+  const {homeboxclass, homeboxtitle, songsfilter, listview} = props
 
   const mediumrow = tracks && tracks
     .filter(x => x.category.includes(songsfilter))
