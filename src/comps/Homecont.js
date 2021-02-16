@@ -11,6 +11,7 @@ import MyPlaylists from './MyPlaylists'
 import Modals from './Modals'
 import {MediumRow} from './SongsCont'
 import BoxItem from './BoxItem'
+import ArtistsPage from './ArtistsPage'
 
  
 export default function Homecont() {
@@ -19,17 +20,17 @@ export default function Homecont() {
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage pageurl="artists" key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
+      <ArtistsPage pageurl="artists" key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} labels={el.labels}/>
     </Route>
   })
   const genresAppPage = genres && genres.map(el => {
     return <Route path={`/genres/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} />
+      <OneAppPage pageurl="genres" key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} />
     </Route>
   })
   const labelsAppPage = labels && labels.map(el => {
     return <Route path={`/labels/${el.name.toLowerCase().replaceAll(' ','')}`}>
-      <OneAppPage key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} />
+      <OneAppPage pageurl="labels" key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} />
     </Route>
   })
 

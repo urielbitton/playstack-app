@@ -2,13 +2,12 @@ import React, { useContext } from 'react'
 import { BrowserRouter as Router,Switch,Route,Link,NavLink } from "react-router-dom"
 import { StoreContext } from './StoreContext'
 import './styles/Tabber.css'
-import TrackRow from './TrackRow'
-import TrackRowComp from './TrackRowComp'
+
 
 export default function Tabber(props) {
 
-  const {tracks} =  useContext(StoreContext)
-  const {tabheaders, pageurl, suburl, textTitle} = props
+  const {render, tabheaders, pageurl, suburl, textTitle, artistfilter, genresfilter, labelsfilter} = props
+
   const headersrow = tabheaders && tabheaders.map(el => {
     return <NavLink 
       exact to={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
@@ -17,19 +16,10 @@ export default function Tabber(props) {
       <hr />
     </NavLink>
   }) 
-  const tabbercontents = tabheaders && tabheaders.map(el => {
-    return <Route 
-      exact 
-      path={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
-      >
-      <TrackRow artistfilter={textTitle} render={({artistfilter}) => (
-        tracks && tracks
-        .filter(x => artistfilter.toLowerCase() === x.artist.toLowerCase())
-        .map((el,i) => {
-          return <TrackRowComp el={el} i={i}/>
-        })
-      )}/>
-    </Route>
+  const tabbercontents = render({
+    artistfilter,
+    genresfilter,
+    labelsfilter
   })
 
   return (

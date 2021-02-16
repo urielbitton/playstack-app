@@ -8,7 +8,7 @@ import './styles/Home.css'
 export default function Home() {
 
   const {discover, tracks} = useContext(StoreContext)
-
+ 
   return (
     <div className="homepage hidescroll">
       <HeroBanner songinfo={discover[0]} textSubtitle="Discover" textTitle='Hot new tracks this week' showsong={true}/>

@@ -9,7 +9,7 @@ import {db} from './Fire'
 
 export default function AppContainer() {
 
-  const {setShowSidebar} = useContext(StoreContext)
+  const {setShowSidebar, setLoaded} = useContext(StoreContext)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -20,8 +20,9 @@ export default function AppContainer() {
       setShowSidebar(true)
     }  
     db.collection('music').doc().onSnapshot(snap => {
-      if(snap.data() !== null)
+      if(snap.data() !== null || snap.data() !== undefined)
         setLoading(false)
+        setTimeout(() => {setLoaded(true)}, 50); 
     })
   },[])  
 

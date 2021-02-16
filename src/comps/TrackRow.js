@@ -2,14 +2,16 @@ import React from 'react'
 
 export default function TrackRow(props) {
 
-  const {artistfilter} = props
+  const {render, artistfilter, genresfilter, labelsfilter} = props
 
 
   return (
     <>
       {
-      props.render({
-        artistfilter
+      render({
+        artistfilter,
+        genresfilter,
+        labelsfilter
       })
       }
     </>

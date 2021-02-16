@@ -68,9 +68,10 @@ const StoreContextProvider = (props) => {
     {name:'Top Month'} 
   ])
   const [editData, setEditData] = useState({}) 
-  let flag = true
+  const [loaded, setLoaded] = useState(false)
 
-  useEffect(() => {
+  useEffect(() => { 
+    let flag = true
     db.collection('music').doc('tracks').onSnapshot(snap => {
       setTracks(snap.data().alltracks)
     })
@@ -87,8 +88,8 @@ const StoreContextProvider = (props) => {
       setCurrentSong(snap.data())
       if(flag) {
         document.querySelector('.rhap_container audio').pause() 
-        flag = false
-      }
+        flag = false    
+      } 
     }) 
   },[])  
 
@@ -96,7 +97,7 @@ const StoreContextProvider = (props) => {
     <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks,
      showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, 
      podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts, showAdd, setShowAdd,
-     editData, setEditData}}>
+     editData, setEditData, loaded, setLoaded}}>
       {props.children}
     </StoreContext.Provider>
   )
