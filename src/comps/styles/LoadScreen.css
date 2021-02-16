@@ -1,0 +1,47 @@
+.loadscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1005;
+}
+@keyframes loader {
+  0% { transform: rotate(0deg) }
+  50% { transform: rotate(180deg) }
+  100% { transform: rotate(360deg) }
+}
+.ldio-8acsdyaimzq div {
+  position: absolute;
+  animation: loader 1s linear infinite;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px; 
+  border-radius: 50%;
+  box-shadow: 0 4px 0 0 #5773ff;
+  transform-origin: 80px 82px;
+}
+.loadingio-spinner-eclipse-gfu7qdk5ppb {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: #fff;
+  transform: scale(0.7)
+}
+.ldio-8acsdyaimzq {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; 
+}
+.ldio-8acsdyaimzq div { 
+  box-sizing: content-box; 
+}

@@ -12,8 +12,8 @@ export default function TrackRowComp(props) {
   return (
     <div className="trackrow">
       <div>
-        <img src={artwork} alt="" />
         <small>{i+1}</small>
+        <img src={artwork} alt="" />
         <PlayPauseBtn songinfo={props.el} onlyicon={true} />
         <i className={favorite?"fas fa-heart":"far fa-heart"} style={{color: favorite?"var(--color)":""}}></i>
       </div>

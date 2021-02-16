@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import BoxItem from './BoxItem'
 import SongRow from './SongRow'
 import SongLargeBox from './SongLargeBox'
 import {StoreContext} from './StoreContext'
@@ -27,13 +26,7 @@ export function BigRow(props) {
 export function MediumRow(props) { 
 
   const {tracks} = useContext(StoreContext)
-  const {homeboxclass, homeboxtitle, songsfilter, listview} = props
-
-  const mediumrow = tracks && tracks
-    .filter(x => x.category.includes(songsfilter))
-    .map(el => {
-      return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
-  })
+  const {homeboxclass, homeboxtitle, songsfilter, listview, favorites} = props
 
   return (
     <div className={`homebox ${homeboxclass}`}>
@@ -42,7 +35,9 @@ export function MediumRow(props) {
         <small>{tracks.filter(x => x.category.includes(songsfilter)).length} tracks</small>
       </h5>
       <div className="homeboxrow">
-        {mediumrow}
+        {
+          props.render({songsfilter,favorites})
+        }
       </div>
     </div> 
   )

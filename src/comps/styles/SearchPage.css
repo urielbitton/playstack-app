@@ -54,7 +54,7 @@
   opacity: 0.5;
   font-weight: 500;
 }
-.searchpagegrid {
+.searchpagegrid { 
   display: flex;
   margin-top: 50px;
   justify-content: flex-start;
@@ -62,4 +62,6 @@
   flex-wrap: wrap;
   grid-gap: 30px;
   width: 80%;
+  height: 600px;
+  overflow-y: scroll;
 }

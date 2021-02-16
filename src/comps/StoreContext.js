@@ -68,9 +68,9 @@ const StoreContextProvider = (props) => {
     {name:'Top Month'} 
   ])
   const [editData, setEditData] = useState({}) 
+  let flag = true
 
   useEffect(() => {
-    let flag = true
     db.collection('music').doc('tracks').onSnapshot(snap => {
       setTracks(snap.data().alltracks)
     })

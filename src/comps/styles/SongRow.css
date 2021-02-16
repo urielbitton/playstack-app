@@ -25,7 +25,7 @@
   font-size: 12px;
   color: #333;
 }
-.songrow h6 small {
+.songrow h6 small { 
   display: block;
   color: #aaa;
   font-weight: 500;
@@ -38,7 +38,7 @@
 .songrow > div > small {
   font-size: 12px;
   color: #333;
-  margin-right: 20px;
+  width: 30px;
 }
 .songrow i {
   margin: auto 5px;

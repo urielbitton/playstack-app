@@ -23,18 +23,16 @@ export function CreateSong(props) {
         audiosrc, 
         artwork, 
         favorite,
-        mylibrary: true,
-        category,
+        category: [...category,'mylibrary'],
         isPlaying: false,
         plays: mode==='edit'?plays:0,
         time,
       } 
       if(mode==='edit') {
-        alltracks && alltracks.map(el => {
+        alltracks && alltracks.forEach(el => {
           if(el.id === id) {
             let itemindex = alltracks.indexOf(el)
             alltracks[itemindex] = tracksObj
-            console.log(itemindex)
           }
         })
         db.collection('music').doc('tracks').update({
@@ -47,6 +45,7 @@ export function CreateSong(props) {
           alltracks: firebase.firestore.FieldValue.arrayUnion(tracksObj)
         }).then(res => {
             history.replace('/library')
+            setShowAdd(0)
         })
       }
     } 

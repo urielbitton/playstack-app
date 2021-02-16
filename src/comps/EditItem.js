@@ -6,7 +6,7 @@ import { StoreContext } from './StoreContext'
 
 export function EditSong(props) { 
  
-  const {charts, showAdd, setShowAdd, editData, setEditData} = useContext(StoreContext)
+  const {charts, showAdd, setShowAdd, editData} = useContext(StoreContext)
   const [id, setId] = useState()
   const [title, setTitle] = useState('')
   const [alt, setAlt] = useState('')

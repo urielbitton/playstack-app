@@ -9,11 +9,13 @@ import { StoreContext } from './StoreContext'
 import './styles/Homecont.css'
 import MyPlaylists from './MyPlaylists'
 import Modals from './Modals'
+import {MediumRow} from './SongsCont'
+import BoxItem from './BoxItem'
 
  
 export default function Homecont() {
 
-  const {artists, genres, labels, podcasts} = useContext(StoreContext)
+  const {tracks, artists, genres, labels, podcasts} = useContext(StoreContext)
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
@@ -52,10 +54,30 @@ export default function Homecont() {
           <AppPage page={podcasts} pagename="podcasts" textTitle="Hear the latest podcasts"/>
         </Route>
         <Route path="/library">
-          <MyPages pagename="Music Library" songsfilter="mylibrary"/>
+          <MyPages>
+            <MediumRow homeboxtitle="Music Library" songsfilter="mylibrary" homeboxclass="trendingbox" view="listview"
+              render={({songsfilter,favorites}) => (
+                tracks && tracks
+                  .filter(x => x.category.includes(songsfilter))
+                  .map(el => {
+                    return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
+                })
+              )}
+            />
+          </MyPages>
         </Route>
         <Route path="/favorites">
-          <MyPages pagename="My Favorites" />
+        <MyPages>
+          <MediumRow homeboxtitle="My Favorites" songsfilter="favorites" homeboxclass="trendingbox" view="listview"
+            render={({songsfilter,favorites}) => (
+              tracks && tracks
+                .filter(x => x.favorite)
+                .map(el => {
+                  return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
+              })
+            )}
+          />
+        </MyPages>
         </Route>
         <Route path="/myplaylists">
           <MyPlaylists />
