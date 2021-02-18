@@ -4,7 +4,8 @@ import PlayPauseBtn from './PlayPauseBtn'
 import './styles/SongRow.css'
 
 export default function SongRow(props) {
-  const {id, title, alt, audiosrc, artist, artwork, time} = props.songinfo
+  const {songinfo} = props
+  const {id, title, alt, audiosrc, artist, artwork, time} = songinfo
   const {count} = props
   
  
@@ -17,8 +18,8 @@ export default function SongRow(props) {
       </div>
       <div> 
         <small>{time}</small>
-        <PlayPauseBtn songinfo={props.songinfo} onlyicon={true}/>
-        <OptionsBtn songinfo={props.songinfo}/>
+        <PlayPauseBtn songinfo={songinfo} onlyicon={true}/>
+        <OptionsBtn songinfo={songinfo}/>
       </div>
     </div>
   )

@@ -35,9 +35,7 @@ export function MediumRow(props) {
         <small>{tracks.filter(x => x.category.includes(songsfilter)).length} tracks</small>
       </h5>
       <div className="homeboxrow">
-        {
-          props.render({songsfilter,favorites})
-        }
+        {props.render({songsfilter,favorites})}
       </div>
     </div> 
   )

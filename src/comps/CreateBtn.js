@@ -66,6 +66,7 @@ export function CreateSong(props) {
 
 export function CreateArtist(props) {
 
+  const {setShowAdd} = useContext(StoreContext)
   const {name, artwork, genres, labels, descript, favorite} = props
   let history = useHistory()
 
@@ -84,6 +85,7 @@ export function CreateArtist(props) {
         allartists: firebase.firestore.FieldValue.arrayUnion(artistObj) 
       }).then(res => {
         history.replace('/artists')
+        setShowAdd(0)
       })  
     }
     else {
@@ -95,6 +97,7 @@ export function CreateArtist(props) {
 
 export function CreateLabel(props) {
 
+  const {setShowAdd} = useContext(StoreContext)
   const {name, artwork, genres, descript, owner} = props
   let history = useHistory()
 
@@ -112,6 +115,7 @@ export function CreateLabel(props) {
         alllabels: firebase.firestore.FieldValue.arrayUnion(labelsObj) 
       }).then(res => {
         history.replace('/labels')
+        setShowAdd(0)
       }) 
     }
     else {
