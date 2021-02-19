@@ -150,6 +150,10 @@ nav .createcont h6 {
   justify-content: center;
   align-items: center;
   grid-gap: 5px;
+  transition: color 0.2s;
+}
+nav .createcont h6:hover {
+  color: var(--color)
 }
 nav .createcont h6 i:hover {
   background: none;

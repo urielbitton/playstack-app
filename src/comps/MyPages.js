@@ -10,6 +10,7 @@ export default function MyPages(props) {
       <div className="appgrid homeleft">
          {children}
       </div>
+      <div className="spacerl"></div>
     </div>
   )
 }

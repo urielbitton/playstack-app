@@ -28,7 +28,7 @@ export function AddSong(props) {
       <div className="additemform hidescroll">
         <AppInput title="Title" onChange={(e) => setTitle(e.target.value)} value={title} />
         <AppInput title="Mix Type (e.g. Radio Edit)" onChange={(e) => setAlt(e.target.value)} value={alt}/>
-        <AppInput title="Artist Name (Seperate by commas)" onChange={(e) => setArtist(e.target.value)} value={artist}/>
+        <AppInput title="Artist Name" onChange={(e) => setArtist(e.target.value)} value={artist}/>
         <AppInput title="Genre" onChange={(e) => setGenre(e.target.value)} value={genre}/>
         <AppInput title="Label" onChange={(e) => setLabel(e.target.value)} value={label}/>
         <AppSelect title="Categories" onChange={(e) => setCategory(Array.from(e.target.selectedOptions, option => option.value))} options={chartsoptions} multiple={true}/>

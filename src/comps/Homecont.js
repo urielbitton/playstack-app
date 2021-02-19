@@ -4,7 +4,6 @@ import AppPage from './AppPage'
 import Home from './Home'
 import MyPages from './MyPages'
 import Navbar from './Navbar'
-import OneAppPage from './OneAppPage'
 import { StoreContext } from './StoreContext'
 import './styles/Homecont.css'
 import MyPlaylists from './MyPlaylists'
@@ -14,6 +13,7 @@ import BoxItem from './BoxItem'
 import ArtistPage from './ArtistPage'
 import GenrePage from './GenrePage'
 import LabelPage from './LabelPage'
+import Library from './Library'
 
  
 export default function Homecont() {
@@ -57,17 +57,7 @@ export default function Homecont() {
           <AppPage page={podcasts} pagename="podcasts" textTitle="Hear the latest podcasts"/>
         </Route>
         <Route path="/library">
-          <MyPages>
-            <MediumRow homeboxtitle="Music Library" songsfilter="mylibrary" homeboxclass="trendingbox" view="listview"
-              render={({songsfilter,favorites}) => (
-                tracks && tracks
-                  .filter(x => x.category.includes(songsfilter))
-                  .map(el => {
-                    return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
-                })
-              )}
-            />
-          </MyPages>
+          <Library />
         </Route>
         <Route path="/favorites">
         <MyPages>

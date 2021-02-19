@@ -7,7 +7,7 @@ import './styles/TrackRow.css'
 export default function TrackRowComp(props) {
 
   const {i} = props
-  const {artwork, favorite, title, artist, label, time, plays} = props.el 
+  const {artwork, favorite, title, artist, label, genre, time, plays} = props.el 
   let history = useHistory()
 
   return (
@@ -21,6 +21,7 @@ export default function TrackRowComp(props) {
       <h6>{title}</h6> 
       <h6>{artist}</h6>  
       <h6 className="linkable" onClick={() => label && history.replace(`/labels/${label.toLowerCase().replaceAll(' ','')}`)}>{label}</h6>
+      <h6>{genre}</h6>  
       <h6 className="narrowflex">{time}</h6>
       <h6 className="narrowflex">{plays}</h6>
       <OptionsBtn songinfo={props.el} classname="narrowflex"/>

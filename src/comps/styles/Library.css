@@ -1,0 +1,39 @@
+.librarycont {
+  width: 100%;
+}
+.librarygridcont {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  grid-gap: 30px 20px;
+}
+.librarycont .trackrow {
+  margin-bottom: 10px;
+}
+.librarycont .trackrow .edittrackcont {
+  right: 0;
+  left: auto;
+}
+.librarycont .trackrow .edittrackcont h6 {
+  padding: 10px;
+}
+.librarycont h4 {
+  margin: 20px 0 40px 0;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+}
+.librarycont .layoutcont {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-gap: 20px;
+  cursor: pointer;
+}
+.librarycont .layoutcont i {
+  color: #aaa;
+  transition: all 0.2s;
+}

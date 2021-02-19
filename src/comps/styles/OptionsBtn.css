@@ -1,6 +1,7 @@
 i.fa-ellipsis-h {
   color: #aaa;
   transition: all 0.2s;
+  cursor: pointer;
 }
 i.fa-ellipsis-h:hover {
   color: var(--color);
@@ -9,22 +10,35 @@ i.fa-ellipsis-h:hover {
   position: absolute;
   top: 25px;
   left: 0;
-  width: 150px;
+  width: 170px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 0 7px rgba(0,0,0,0.1);
   z-index: 100;
 }
-.songrow .edittrackcont h6 {
+.edittrackcont h6 {
   padding: 5px;
   color: #777;
   cursor: pointer;
   transition: all 0.2s;
   user-select: none;
+  font-size: 12px;
+  font-family: 'Nunito';
+}
+.edittrackcont h6 i {
+  margin-right: 7px;
 }
 .edittrackcont h6:hover {
   color: var(--color);
 }
 .edittrackcont h6 i.fa-play {
-  color: inherit
+  color: inherit;
 }
+.optseditinp {
+  position: absolute;
+  top: -13px;
+  left: -6px;
+  opacity: 0;
+  cursor: pointer;
+}
+

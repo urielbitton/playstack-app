@@ -9,12 +9,12 @@ import { StoreContext } from './StoreContext'
 export default function ArtistPage(props) {
 
   const {tracks} = useContext(StoreContext)
-  const {pageurl, textTitle, genres, labels} = props
+  const {songinfo, descript, pageurl, textTitle, genres, labels} = props
   const suburl = textTitle.toLowerCase().replaceAll(' ','')
   const tabheaders = ['New Releases','Trending','Top Charts','By Label','By Genre']
 
   return (
-      <OneAppPage genres={genres} labels={labels}>
+      <OneAppPage genres={genres} labels={labels} songinfo={songinfo} textTitle={textTitle} descript={descript}>
         <Tabber pageurl="artists" suburl={suburl} textTitle={textTitle} tabheaders={tabheaders}
           render={({artistfilter,genresfilter,labelsfilter}) => (
             tabheaders && tabheaders.map(el => {

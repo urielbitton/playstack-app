@@ -23,9 +23,9 @@
 .trackrow > div i {
   color: #ddd;
 }
-.trackrow h6 {
-  font-size: 13px;
-  color: #999;
+.trackrow > h6 {
+  font-size: 12px;
+  color: #333;
   flex-basis: 16%;
 }
 .trackrow .narrowflex {

@@ -1,0 +1,28 @@
+.trackheadercont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin: 20px 0;
+  background: #fafafa;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+.trackheadercont h5 {
+  flex-basis: 16%;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  transition: all 0.2s;
+}
+.trackheadercont h5:hover, .trackheadercont h5:hover i {
+  color: var(--color);
+}
+.trackheadercont h5 i {
+  color: #aaa;
+  transition: all 0.3s;
+}
