@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import BoxItem from './BoxItem'
-import {db} from './Fire'
+import React, { useContext } from 'react'
+import MyPages from './MyPages'
+import PlaylistBox from './PlaylistBox'
+import { StoreContext } from './StoreContext'
+import './styles/MyPlaylists.css'
 
 export default function MyPlaylists() {
  
+  const {playlists} = useContext(StoreContext)
+
+  const playlistsrow = playlists && playlists.map(el => {
+    return <PlaylistBox el={el}/>
+  })
+
   return (
-    <div className="myplaylistspage">
-     <div className="spacerl"></div>
-      
-    </div>
+    <MyPages className="myplaylistspage">
+      <h4>All Playlists</h4>
+      <div className="playlistsgrid">
+        {playlistsrow}
+      </div>
+    </MyPages>
   )
 }

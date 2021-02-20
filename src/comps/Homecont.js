@@ -15,11 +15,12 @@ import GenrePage from './GenrePage'
 import LabelPage from './LabelPage'
 import Library from './Library'
 import NewPlaylist from './NewPlaylist'
+import OnePlayList from './OnePlayList'
 
  
 export default function Homecont() {
 
-  const {tracks, artists, genres, labels, podcasts} = useContext(StoreContext)
+  const {tracks, artists, genres, labels, podcasts, playlists} = useContext(StoreContext)
 
   const artistAppPage = artists && artists.map(el => {
     return <Route path={`/artists/${el.name.toLowerCase().replaceAll(' ','')}`}>
@@ -34,6 +35,11 @@ export default function Homecont() {
   const labelsAppPage = labels && labels.map(el => {
     return <Route path={`/labels/${el.name.toLowerCase().replaceAll(' ','')}`}>
       <LabelPage pageurl="labels" key={el.id} songinfo={el} textTitle={el.name} descript={el.descript} genres={el.genres} />
+    </Route>
+  })
+  const onePlaylistPage = playlists && playlists.map(el => {
+    return <Route path={`/playlists/${el.playlistName.toLowerCase().replaceAll(' ','')}`}>
+      <OnePlayList el={el} />
     </Route>
   })
 
@@ -82,6 +88,7 @@ export default function Homecont() {
         {artistAppPage}
         {genresAppPage}
         {labelsAppPage} 
+        {onePlaylistPage}
       </Switch>
     </div>
   )

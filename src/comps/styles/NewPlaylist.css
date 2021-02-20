@@ -6,20 +6,98 @@
   height: 600px;
 }
 .newplaylistpage .trackgrid {
-  width: 700px;
-  height: 500px;
-  overflow-y: scroll;
+  width: 740px;
+  height: 550px;
+  margin: 30px 0;
+  background: #fff;
+  box-shadow: 0 0 14px rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+}
+.newplaylistpage .trackgridinner {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  grid-gap: 15px;
+  grid-gap: 25px 15px;
+  overflow-y: scroll;
+  height: 87%;
+  padding-bottom: 30px;
+}
+.newplaylistpage label h6 {
+  color: #333;
+  margin-bottom: 5px;
+}
+.newplaylistpage input {
+  width: 300px;
+}
+.trackgridhead {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+}
+.trackgridhead > div {
+  display: flex;
+  align-items: center;
+}
+.trackgridhead > div small {
+  font-size: 11px;
+  margin-right: 10px;
+  top: 2px;
+  color: var(--color);
+  cursor: pointer;
+}
+.trackgridhead > div small:hover {
+  text-decoration: underline;
+}
+.trackgridhead h5 {
+  font-size: 16px;
+  color: #333;
+}
+.trackgridhead input {
+  height: 40px;
+  border: none;
+  background: #f5f5f5; 
+}
+.trackgridhead label i {
+  position: absolute;
+  top: 17px;
+  right: 10px;
+  z-index: 10;
+  color: #aaa;
 }
 .checksongbox {
   width: 100px;
-  height: 100px;
+  min-height: 135px;
   border-radius: 10px;
-  background: #fafafa;
+  background: #f5f5f5;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.checksongbox:hover, .checksongbox.selectedsongbox {
+  background: var(--color);
+}
+.checksongbox:hover h6, .checksongbox.selectedsongbox h6 {
+  color: #fff;
+}
+.selectedsongbox h6 i {
+  margin-right: 5px;
+}
+.checksongbox .imgcont {
   background-position: center;
   background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+.checksongbox h6 {
+  color: #777;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10.5px;
+  padding: 0 5px 7px 5px;
+  font-weight: 500;
 }

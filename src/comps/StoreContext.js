@@ -57,6 +57,8 @@ const StoreContextProvider = (props) => {
       favorite: false
     },
   ])
+  const [playlists, setPlaylists] = useState([])
+
   const [showSearch, setShowSearch] = useState(false)
   const [showsidebar, setShowSidebar] = useState(true)
   const [showAdd, setShowAdd] = useState(0)
@@ -69,6 +71,7 @@ const StoreContextProvider = (props) => {
   ])
   const [editData, setEditData] = useState({}) 
   const [loaded, setLoaded] = useState(false)
+  const [tracksarr, setTracksArr] = useState([])
 
   useEffect(() => { 
     let flag = true
@@ -91,13 +94,16 @@ const StoreContextProvider = (props) => {
         flag = false    
       } 
     }) 
+    db.collection('music').doc('playlists').onSnapshot(snap => {
+      setPlaylists(snap.data().allplaylists)
+    })
   },[])  
 
   return (
     <StoreContext.Provider value={{currentSong, setCurrentSong, discover, setDiscover, tracks, setTracks,
      showSearch, setShowSearch, artists, setArtists, genres, setGenres, labels, setLabels, 
      podcasts, setPodcasts, showsidebar, setShowSidebar, charts, setCharts, showAdd, setShowAdd,
-     editData, setEditData, loaded, setLoaded}}>
+     editData, setEditData, loaded, setLoaded, tracksarr, setTracksArr, playlists, setPlaylists}}>
       {props.children}
     </StoreContext.Provider>
   )
