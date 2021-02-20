@@ -7,7 +7,7 @@ import { StoreContext } from './StoreContext'
 export function CreateSong(props) {
  
   const {setShowAdd} = useContext(StoreContext)
-  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle,mode} = props
+  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle,mode,onSubmit} = props
   let history = useHistory()
   const [alltracks, setAllTracks] = useState([])
  
@@ -48,6 +48,7 @@ export function CreateSong(props) {
             setShowAdd(0)
         })
       }
+      onSubmit()
     } 
     else {
       window.alert('Please provide the required fields')
@@ -67,7 +68,7 @@ export function CreateSong(props) {
 export function CreateArtist(props) {
 
   const {setShowAdd} = useContext(StoreContext)
-  const {name, artwork, genres, labels, descript, favorite} = props
+  const {name, artwork, genres, labels, descript, favorite, onSubmit} = props
   let history = useHistory()
 
   function create() {
@@ -86,7 +87,8 @@ export function CreateArtist(props) {
       }).then(res => {
         history.replace('/artists')
         setShowAdd(0)
-      })  
+      }) 
+      onSubmit() 
     }
     else {
       window.alert('Please provide the required fields')
@@ -98,7 +100,7 @@ export function CreateArtist(props) {
 export function CreateLabel(props) {
 
   const {setShowAdd} = useContext(StoreContext)
-  const {name, artwork, genres, descript, owner} = props
+  const {name, artwork, genres, descript, owner, onSubmit} = props
   let history = useHistory()
 
   function create() {
@@ -117,6 +119,7 @@ export function CreateLabel(props) {
         history.replace('/labels')
         setShowAdd(0)
       }) 
+      onSubmit()
     }
     else {
       window.alert('Please provide the required fields')

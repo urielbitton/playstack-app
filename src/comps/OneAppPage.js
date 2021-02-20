@@ -13,7 +13,6 @@ export default function OneAppPage(props) {
         {children}
         <div className="spacerl"></div>
       </div>
-      
     </div>
   )
 }

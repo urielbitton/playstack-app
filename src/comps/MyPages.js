@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function MyPages(props) {
 
-  const {children} = props
+  const {children, className} = props
 
   return (
-    <div className="mypages">
+    <div className={`mypages ${className}`}>
       <div className="spacer"></div>
       <div className="appgrid homeleft">
          {children}

@@ -21,6 +21,7 @@ export default function AppPage(props) {
       <div className="appgrid"> 
         {pagerow}
       </div>
+      <div className="spacerl"></div>
     </div>
   )
 }

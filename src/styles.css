@@ -87,6 +87,11 @@ select {
 select option {
   padding: 5px;
 }
+input[type="color"] {
+  width: 200px;
+  height: 45px;
+  padding: 3px;
+}
 .appselect [role="option"] span {
   font-size: 12px;
 }

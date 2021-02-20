@@ -1,5 +1,6 @@
 .oneapppage .appgrid {
   padding: 50px;
   width: 90%;
-  margin: auto;
+  height: 100%;
+  margin: auto; 
 }

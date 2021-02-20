@@ -14,6 +14,7 @@ import ArtistPage from './ArtistPage'
 import GenrePage from './GenrePage'
 import LabelPage from './LabelPage'
 import Library from './Library'
+import NewPlaylist from './NewPlaylist'
 
  
 export default function Homecont() {
@@ -74,6 +75,9 @@ export default function Homecont() {
         </Route>
         <Route path="/myplaylists">
           <MyPlaylists />
+        </Route>
+        <Route path="/newplaylist">
+          <NewPlaylist />
         </Route>
         {artistAppPage}
         {genresAppPage}

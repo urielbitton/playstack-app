@@ -22,6 +22,18 @@ export function AddSong(props) {
   const chartsoptions = charts && charts.map(el => {
     return {name:el.name} 
   })
+  function onSubmit() {
+    setTitle('')
+    setAlt('')
+    setArtist('')
+    setGenre('')
+    setLabel('')
+    setAudioSrc('')
+    setArtwork('')
+    setFavorite(false)
+    setCategory([])
+    setTime('')
+  }
 
   return (
     <AddItemCont showadd={showAdd===1} setShowAdd={setShowAdd} title="Add a Song" iconclass="far fa-music-alt">
@@ -39,7 +51,7 @@ export function AddSong(props) {
           <AppInput type="checkbox" title="Favorite" onChange={(e) => setFavorite(e.target.value)} value={favorite}/>
         </div>
       </div>
-      <CreateSong title={title} alt={alt} artist={artist} genre={genre} label={label} audiosrc={audiosrc} artwork={artwork} favorite={favorite} category={category} time={time} btntitle="Add" />
+      <CreateSong title={title} alt={alt} artist={artist} genre={genre} label={label} audiosrc={audiosrc} artwork={artwork} favorite={favorite} category={category} time={time} btntitle="Add" onSubmit={() => onSubmit()}/>
     </AddItemCont> 
   )
 } 
@@ -60,6 +72,14 @@ export function AddArtist(props) {
   const labelsoptions = labels && labels.map(el => {
     return {name:el.name} 
   })
+  function onSubmit() {
+    setName('')
+    setGenre('')
+    setLabel('')
+    setArtwork('')
+    setFavorite(false)
+    setDescript('')
+  }
  
   return (
     <AddItemCont showadd={showAdd===2} setShowAdd={setShowAdd} title="Add an Artist" iconclass="far fa-microphone-stand">
@@ -73,7 +93,7 @@ export function AddArtist(props) {
           <AppInput type="checkbox" title="Favorite" onChange={(e) => setFavorite(e.target.value)} value={favorite}/>
         </div>
       </div> 
-      <CreateArtist name={name} artwork={artwork} genres={genre} labels={label} descript={descript} favorite={favorite} />
+      <CreateArtist name={name} artwork={artwork} genres={genre} labels={label} descript={descript} favorite={favorite} onSubmit={() => onSubmit()}/>
     </AddItemCont>
   )
 }
@@ -82,7 +102,7 @@ export function AddLabel(props) {
 
   const {genres, showAdd, setShowAdd} = useContext(StoreContext)
   const [name, setName] = useState('')
-  const [genre, setGenre] = useState('')
+  const [genre, setGenre] = useState([])
   const [artwork, setArtwork] = useState('')
   const [descript, setDescript] = useState('')
   const [owner, setOwner] = useState('')
@@ -90,6 +110,13 @@ export function AddLabel(props) {
   const genresoptions = genres && genres.map(el => {
     return {name:el.name} 
   })
+  function onSubmit() {
+    setName('')
+    setGenre([])
+    setArtwork('')
+    setDescript('')
+    setOwner('')
+  }
 
   return (
     <AddItemCont showadd={showAdd===3} setShowAdd={setShowAdd} title="Add a Label" iconclass="far fa-compact-disc">
@@ -100,7 +127,7 @@ export function AddLabel(props) {
         <AppInput title="Label Description" onChange={(e) => setDescript(e.target.value)} value={descript}/>
         <AppInput title="Owner" onChange={(e) => setOwner(e.target.value)} value={owner}/>
       </div>
-      <CreateLabel name={name} artwork={artwork} genres={genre} descript={descript} owner={owner}/>
+      <CreateLabel name={name} artwork={artwork} genres={genre} descript={descript} owner={owner} onSubmit={() => onSubmit()}/>
     </AddItemCont>
   )
 }
