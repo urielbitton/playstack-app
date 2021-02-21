@@ -7,7 +7,7 @@ import { StoreContext } from './StoreContext'
 export function CreateSong(props) {
  
   const {setShowAdd} = useContext(StoreContext)
-  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle,mode,onSubmit} = props
+  const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle,mode,clearFields} = props
   let history = useHistory()
   const [alltracks, setAllTracks] = useState([])
  
@@ -48,7 +48,7 @@ export function CreateSong(props) {
             setShowAdd(0)
         })
       }
-      onSubmit()
+      clearFields()
     } 
     else {
       window.alert('Please provide the required fields')

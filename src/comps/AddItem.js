@@ -5,6 +5,7 @@ import {CreateSong, CreateArtist, CreateLabel} from './CreateBtn'
 import {StoreContext} from './StoreContext'
 import {db} from './Fire'
 import './styles/AddItem.css'
+import { useHistory } from 'react-router-dom'
 
 export function AddSong(props) {
  
@@ -23,7 +24,7 @@ export function AddSong(props) {
   const chartsoptions = charts && charts.map(el => {
     return {name:el.name} 
   })
-  function onSubmit() {
+  function clearFields() {
     setTitle('')
     setAlt('')
     setArtist('')
@@ -52,7 +53,7 @@ export function AddSong(props) {
           <AppInput type="checkbox" title="Favorite" onChange={(e) => setFavorite(e.target.value)} value={favorite}/>
         </div>
       </div>
-      <CreateSong title={title} alt={alt} artist={artist} genre={genre} label={label} audiosrc={audiosrc} artwork={artwork} favorite={favorite} category={category} time={time} btntitle="Add" onSubmit={() => onSubmit()}/>
+      <CreateSong title={title} alt={alt} artist={artist} genre={genre} label={label} audiosrc={audiosrc} artwork={artwork} favorite={favorite} category={category} time={time} btntitle="Add" clearFields={() => clearFields()}/>
     </AddItemCont> 
   )
 } 
@@ -138,21 +139,42 @@ export function AddToPlaylist(props) {
   const {playlists, showAdd, setShowAdd, editData} = useContext(StoreContext)
   const [selectedPlaylist, setSelectedPlaylist] = useState('')
   const {contclass} = props
+  let history = useHistory()
 
-  const playlistoptions = playlists && playlists.map(el => {
-    return {name:el.playlistName}
+  const playlistoptions = playlists && playlists
+    .filter(x => !x.tracksarr.includes(editData.id))
+    .map(el => {
+      return {value:el.id, name:el.playlistName}
   })
+
   function addToPlaylist() {
-    console.log(setSelectedPlaylist)
+    if(selectedPlaylist !== 'Choose a Playlist') {
+      playlists && playlists.forEach(el => {
+        if(el.id === selectedPlaylist) {
+          el.tracksarr.push(editData.id)
+        }
+      })
+      db.collection('music').doc('playlists').update({
+        allplaylists: playlists
+      }).then(res => {
+        history.replace('/myplaylists')
+        setShowAdd(0)
+      }).catch(error => alert('An error occurred. Please try again.')) 
+    }
+    else {
+      alert('Select a playlist')
+    }
   }
  
   return (
     <AddItemCont contclass={contclass} showadd={showAdd===5} setShowAdd={setShowAdd} title="Add To Playlist">
         <div>
           <h6>{editData.artist} - {editData.title}</h6>
-          <AppSelect options={playlistoptions} 
-            onChange={(e) => setSelectedPlaylist(e.target.value)} 
+          <AppSelect 
+            options={[{name:'Choose a Playlist',value:'chooseaplaylist'},...playlistoptions]} 
+            onChange={(e) => setSelectedPlaylist(e.target.value)}
             value={selectedPlaylist}
+            regname
           />
         </div>
         <button onClick={() => addToPlaylist()}>Add To Playlist</button>

@@ -11,7 +11,7 @@ export default function GenrePage(props) {
   const {tracks} = useContext(StoreContext)
   const {songinfo, textTitle, descript, pageurl, genres, labels} = props
   const suburl = textTitle.toLowerCase().replaceAll(' ','')
-  const tabheaders = ['New Releases','Trending','Top Charts','By Label','By Artist']
+  const tabheaders = ['All','New Releases','Trending','Top Charts','By Label','By Artist']
 
   return ( 
       <OneAppPage songinfo={songinfo} genres={genres} labels={labels} textTitle={textTitle} descript={descript}>
@@ -20,13 +20,16 @@ export default function GenrePage(props) {
             tabheaders && tabheaders.map(el => {
               return <Route 
                 exact 
-                path={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
+                path={`/${pageurl}/${suburl}/${el==='All'?"":el.toLowerCase().replaceAll(' ','')}`}
                 >
                 <TrackRow genresfilter={textTitle} render={({genresfilter}) => (
                   tracks && tracks
-                  .filter(x => genresfilter.toLowerCase() === x.genre.toLowerCase())
-                  .map((el,i) => {
-                    return <TrackRowComp el={el} i={i}/>
+                  .filter(x => {
+                    return el==='All'?genresfilter.toLowerCase() === x.genre.toLowerCase()
+                    :x.genre.toLowerCase().includes(genresfilter.toLowerCase()) && x.category.includes(el.toLowerCase().replaceAll(' ',''))
+                  })
+                  .map((el2,i) => {
+                    return <TrackRowComp el={el2} i={i}/>
                   })
                 )}/>
               </Route>

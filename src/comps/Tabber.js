@@ -6,11 +6,11 @@ import './styles/Tabber.css'
 
 export default function Tabber(props) {
 
-  const {render, tabheaders, pageurl, suburl, textTitle, artistfilter, genresfilter, labelsfilter} = props
+  const {render, tabheaders, pageurl, suburl, artistfilter, genresfilter, labelsfilter} = props
 
   const headersrow = tabheaders && tabheaders.map(el => {
     return <NavLink 
-      exact to={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
+      exact to={`/${pageurl}/${suburl}/${el==='All'?"":el.toLowerCase().replaceAll(' ','')}`}
       activeClassName="tabberactivelink">
       <h4>{el}</h4>
       <hr />

@@ -11,22 +11,25 @@ export default function LabelPage(props) {
   const {tracks} = useContext(StoreContext)
   const {songinfo, pageurl, textTitle, descript, genres, labels} = props
   const suburl = textTitle.toLowerCase().replaceAll(' ','')
-  const tabheaders = ['New Releases','Trending','Top Charts','By Artist','By Genre']
+  const tabheaders = ['All','New Releases','Trending','Top Charts','By Artist','By Genre']
 
   return (
       <OneAppPage songinfo={songinfo} genres={genres} labels={labels} textTitle={textTitle} descript={descript}>
-        <Tabber pageurl="artists" suburl={suburl} textTitle={textTitle} tabheaders={tabheaders}
+        <Tabber pageurl="labels" suburl={suburl} textTitle={textTitle} tabheaders={tabheaders}
           render={({labelsfilter}) => (
             tabheaders && tabheaders.map(el => {
               return <Route 
                 exact 
-                path={`/${pageurl}/${suburl}/${el==='New Releases'?"":el.toLowerCase().replaceAll(' ','')}`}
+                path={`/${pageurl}/${suburl}/${el==='All'?"":el.toLowerCase().replaceAll(' ','')}`}
                 >
                 <TrackRow labelsfilter={textTitle} render={({labelsfilter}) => (
                   tracks && tracks
-                  .filter(x => labelsfilter.toLowerCase() === x.label.toLowerCase())
-                  .map((el,i) => {
-                    return <TrackRowComp el={el} i={i}/>
+                  .filter(x => {
+                    return el==='All'?labelsfilter.toLowerCase() === x.label.toLowerCase()
+                    :x.label.toLowerCase().includes(labelsfilter.toLowerCase()) && x.category.includes(el.toLowerCase().replaceAll(' ',''))
+                  })
+                  .map((el2,i) => {
+                    return <TrackRowComp el={el2} i={i}/>
                   })
                 )}/>
               </Route>
