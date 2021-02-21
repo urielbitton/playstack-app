@@ -3,6 +3,7 @@ import AddItemCont from './AddItemCont'
 import {AppInput, AppSelect} from './AppInputs'
 import {CreateSong, CreateArtist, CreateLabel} from './CreateBtn'
 import {StoreContext} from './StoreContext'
+import {db} from './Fire'
 import './styles/AddItem.css'
 
 export function AddSong(props) {
@@ -128,6 +129,33 @@ export function AddLabel(props) {
         <AppInput title="Owner" onChange={(e) => setOwner(e.target.value)} value={owner}/>
       </div>
       <CreateLabel name={name} artwork={artwork} genres={genre} descript={descript} owner={owner} onSubmit={() => onSubmit()}/>
+    </AddItemCont>
+  )
+}
+
+export function AddToPlaylist(props) {
+
+  const {playlists, showAdd, setShowAdd, editData} = useContext(StoreContext)
+  const [selectedPlaylist, setSelectedPlaylist] = useState('')
+  const {contclass} = props
+
+  const playlistoptions = playlists && playlists.map(el => {
+    return {name:el.playlistName}
+  })
+  function addToPlaylist() {
+    console.log(setSelectedPlaylist)
+  }
+ 
+  return (
+    <AddItemCont contclass={contclass} showadd={showAdd===5} setShowAdd={setShowAdd} title="Add To Playlist">
+        <div>
+          <h6>{editData.artist} - {editData.title}</h6>
+          <AppSelect options={playlistoptions} 
+            onChange={(e) => setSelectedPlaylist(e.target.value)} 
+            value={selectedPlaylist}
+          />
+        </div>
+        <button onClick={() => addToPlaylist()}>Add To Playlist</button>
     </AddItemCont>
   )
 }

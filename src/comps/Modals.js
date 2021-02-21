@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddArtist, AddLabel, AddSong } from './AddItem'
+import { AddArtist, AddLabel, AddSong, AddToPlaylist } from './AddItem'
 import SearchPage from './SearchPage'
 import { EditSong } from './EditItem'
 
@@ -12,6 +12,7 @@ export default function Modals() {
       <AddArtist />
       <AddLabel />
       <EditSong />
+      <AddToPlaylist contclass="addtoplaylistcont"/> 
     </>
   )
 }

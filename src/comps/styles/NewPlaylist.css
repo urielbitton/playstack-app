@@ -78,10 +78,13 @@
   cursor: pointer;
   transition: all 0.2s;
 }
-.checksongbox:hover, .checksongbox.selectedsongbox {
+.checksongbox:hover {
+  background: #e1e1e1;
+}
+.checksongbox.selectedsongbox {
   background: var(--color);
 }
-.checksongbox:hover h6, .checksongbox.selectedsongbox h6 {
+.checksongbox.selectedsongbox h6 {
   color: #fff;
 }
 .selectedsongbox h6 i {

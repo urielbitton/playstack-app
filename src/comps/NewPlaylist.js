@@ -12,12 +12,11 @@ export default function NewPlaylist(props) {
   const {tracks, tracksarr, setTracksArr} = useContext(StoreContext)
   const [keyword, setKeyword] = useState('') 
   const [playlistName, setPlaylistName] = useState('')
-  const [playlistColor, setPlaylistColor] = useState('#5773ff')
   const pattern = new RegExp('\\b' + keyword.replace(/[\W_]+/g,""), 'i')
   let history = useHistory()
 
   const tracksrow = tracks && tracks
-  .filter(x => {return pattern.test(x.title)})
+  .filter(x => {return pattern.test(x.title) || pattern.test(x.artist)})
   .map(el => {
     return <div className={tracksarr.includes(el.id)?"checksongbox selectedsongbox":"checksongbox"} 
       onClick={() => tracksarr.includes(el.id)?removeTrack(el):addTrack(el)} 
@@ -38,7 +37,6 @@ export default function NewPlaylist(props) {
     const playlistObj = {
       id: db.collection("music").doc().id,
       playlistName,
-      playlistColor,
       tracksarr
     }
     db.collection('music').doc('playlists').update({
@@ -52,14 +50,13 @@ export default function NewPlaylist(props) {
     <MyPages className="newplaylistpage">
       <h4>Create a Playlist</h4>
       <AppInput title="Playlist Name" onChange={(e) => setPlaylistName(e.target.value)} value={playlistName}/>
-      <AppInput title="Color" type="color" value={playlistColor} onChange={(e) => setPlaylistColor(e.target.value)}/>
       <div className="trackgridcont">
         <div className="trackgrid">
           <div className="trackgridhead">
             <h5>Add Songs</h5>
             <div>
               <small onClick={() => setTracksArr([])}>Clear</small>
-              <AppInput placeholder="Search..." iconclass="far fa-search" onChange={(e) => setKeyword(e.target.value)} />
+              <AppInput placeholder="Search by title or artist..." iconclass="far fa-search" onChange={(e) => setKeyword(e.target.value)} />
             </div>
           </div>
           <div className="trackgridinner">

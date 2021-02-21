@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.85);
   z-index: 1001;
   display: flex;
   justify-content: center;
@@ -64,6 +64,7 @@
   width: 90%;
   height: 90%;
   overflow-y: scroll;
+  margin-top: 40px;
 }
 .additemform > div {
   display: flex;
@@ -97,5 +98,23 @@
 .addformcheckboxcont label input {
   width: auto;
   margin-left: 10px;
+}
+.additemcont .addtoplaylistcont {
+  height: 350px;
+  justify-content: space-between;
+}
+.addtoplaylistcont > div {
+  width: 100%;
+  text-align: center;
+}
+.addtoplaylistcont h6 {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.addtoplaylistcont select {
+  height: 40px;
+  padding: 10px;
+  color: #555;
 }
 

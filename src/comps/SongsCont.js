@@ -26,12 +26,12 @@ export function BigRow(props) {
 export function MediumRow(props) { 
 
   const {tracks} = useContext(StoreContext)
-  const {homeboxclass, homeboxtitle, songsfilter, listview, favorites} = props
+  const {homeboxclass, homeboxtitle, songsfilter, favorites} = props
 
   return (
     <div className={`homebox ${homeboxclass}`}>
       <h5>
-        {homeboxtitle}
+        {homeboxtitle} 
         <small>{tracks.filter(x => x.category.includes(songsfilter)).length} tracks</small>
       </h5>
       <div className="homeboxrow">
