@@ -6,10 +6,9 @@ import { StoreContext } from './StoreContext'
 
 export function CreateSong(props) {
  
-  const {setShowAdd} = useContext(StoreContext)
+  const {setShowAdd, tracks} = useContext(StoreContext)
   const {id,title,alt,artist,genre,label,audiosrc,artwork,favorite,category,time,plays,btntitle,mode,clearFields} = props
   let history = useHistory()
-  const [alltracks, setAllTracks] = useState([])
  
   function create() {
     if(title.length && artist.length && audiosrc.length) {
@@ -29,14 +28,14 @@ export function CreateSong(props) {
         time,
       } 
       if(mode==='edit') {
-        alltracks && alltracks.forEach(el => {
+        tracks && tracks.forEach(el => {
           if(el.id === id) {
-            let itemindex = alltracks.indexOf(el)
-            alltracks[itemindex] = tracksObj
+            let itemindex = tracks.indexOf(el)
+            tracks[itemindex] = tracksObj
           }
         })
         db.collection('music').doc('tracks').update({
-          alltracks: alltracks
+          alltracks: tracks
         })
         setShowAdd(0)
       }
@@ -54,13 +53,6 @@ export function CreateSong(props) {
       window.alert('Please provide the required fields')
     }
   }
-
-  useEffect(() => {
-    db.collection('music').doc('tracks').onSnapshot(snap => {
-      let tracks = snap.data().alltracks
-      setAllTracks(tracks)
-    })
-  },[])
 
   return <button onClick={() => create()}>{btntitle} Song</button>
 }

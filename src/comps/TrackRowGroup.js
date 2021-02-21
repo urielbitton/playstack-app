@@ -4,12 +4,18 @@ import './styles/TrackRowGroup.css'
 
 export default function TrackRowGroup(props) {
 
-  const {title, el, i} = props
+  const {el:songel, type} = props
+
+  const grouprow = type && type
+    .filter(x => songel.label===x.name | songel.genre===x.name)
+    .map((el,i) => {
+      return <div className="trackrowgroup">
+        <h5>{el.name}</h5>
+        <TrackRowComp el={songel} i={i}/>
+      </div> 
+  }) 
 
   return (
-    <div className="trackrowgroup">
-      <h5>{title}</h5>
-      <TrackRowComp el={el} i={i}/>
-    </div>
+    grouprow
   )
 }

@@ -36,3 +36,9 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+@media (max-width: 1300px) {
+  .trackrow > div .fa-heart {
+    display: none;
+  }
+}

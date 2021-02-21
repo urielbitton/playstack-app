@@ -9,7 +9,7 @@ i.fa-ellipsis-h:hover {
 .edittrackcont {
   position: absolute;
   top: 25px;
-  left: 0;
+  right: 0;
   width: 170px;
   border-radius: 10px;
   background: #fff;
