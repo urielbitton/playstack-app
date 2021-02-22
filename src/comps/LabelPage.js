@@ -5,6 +5,8 @@ import Tabber from './Tabber'
 import TrackRow from './TrackRow'
 import TrackRowComp from './TrackRowComp'
 import { StoreContext } from './StoreContext'
+import TrackSection from './TrackSection'
+import TrackRowGroup from './TrackRowGroup'
 
 export default function LabelPage(props) {
 
@@ -17,20 +19,21 @@ export default function LabelPage(props) {
       <OneAppPage songinfo={songinfo} genres={genres} labels={labels} textTitle={textTitle} descript={descript}>
         <Tabber pageurl="labels" suburl={suburl} textTitle={textTitle} tabheaders={tabheaders}
           render={({labelsfilter}) => (
-            tabheaders && tabheaders.map(el => {
+            tabheaders && tabheaders.map(head => {
               return <Route 
                 exact 
-                path={`/${pageurl}/${suburl}/${el==='All'?"":el.toLowerCase().replaceAll(' ','')}`}
+                path={`/${pageurl}/${suburl}/${head==='All'?"":head.toLowerCase().replaceAll(' ','')}`}
                 >
-                <TrackRow labelsfilter={textTitle} render={({labelsfilter}) => (
-                  tracks && tracks
-                  .filter(x => {
-                    return el==='All'?labelsfilter.toLowerCase() === x.label.toLowerCase()
-                    :x.label.toLowerCase().includes(labelsfilter.toLowerCase()) && x.category.includes(el.toLowerCase().replaceAll(' ',''))
-                  })
-                  .map((el2,i) => {
-                    return <TrackRowComp el={el2} i={i}/>
-                  })
+                <TrackSection labelsfilter={textTitle} render={({labelsfilter}) => (
+                    head==='By Genre'?genres && genres.map((el) => <TrackRowGroup el={el} labelsfilter={labelsfilter} />):
+                    head==='By Label'?labels && labels.map((el) => <TrackRowGroup el={el} labelsfilter={labelsfilter} />):
+                    tracks && tracks
+                    .filter(x => (head==='All')? 
+                      x.label.includes(labelsfilter):
+                      x.label.toLowerCase().includes(labelsfilter.toLowerCase()) && x.category.includes(head.toLowerCase().replaceAll(' ','')))
+                    .map((el,i) => {  
+                      return <TrackRowComp el={el} i={i} labelsfilter={labelsfilter} />
+                    })
                 )}/>
               </Route>
             })
