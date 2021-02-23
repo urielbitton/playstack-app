@@ -5,18 +5,17 @@ import Tabber from './Tabber'
 import TrackRowComp from './TrackRowComp'
 import { StoreContext } from './StoreContext'
 import TrackSection from './TrackSection'
-import TrackRow from './TrackRow'
 import TrackRowGroup from './TrackRowGroup'
 
 export default function GenrePage(props) { 
 
-  const {tracks} = useContext(StoreContext)
-  const {songinfo, textTitle, descript, pageurl, genres, labels, artists} = props
+  const {tracks, artists, labels} = useContext(StoreContext)
+  const {songinfo, textTitle, descript, pageurl, genres:propgenres, labels:proplabels, artists:propartists} = props
   const suburl = textTitle.toLowerCase().replaceAll(' ','')
   const tabheaders = ['All','New Releases','Trending','Top Charts','By Label','By Artist']
 
   return ( 
-      <OneAppPage songinfo={songinfo} genres={genres} labels={labels} textTitle={textTitle} descript={descript}>
+      <OneAppPage songinfo={songinfo} genres={propgenres} labels={proplabels} textTitle={textTitle} descript={descript}>
         <Tabber pageurl="genres" suburl={suburl} textTitle={textTitle} tabheaders={tabheaders}
           render={({genresfilter}) => (
             tabheaders && tabheaders.map(head => {

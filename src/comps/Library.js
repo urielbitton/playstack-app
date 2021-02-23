@@ -16,6 +16,19 @@ export default function Library() {
   const boxrow = tracks && tracks.map(el => {
     return <BoxItem key={el.id} songinfo={el} title={el.title} subtitle={el.artist} />
   })
+  const listrow = tracks && tracks 
+    .sort((a,b) => {
+      if(rowsort.text==='Title') return rowsort.asc?a.title.localeCompare(b.title):b.title.localeCompare(a.title)
+      if(rowsort.text==='Artist') return rowsort.asc?a.artist.localeCompare(b.artist):b.artist.localeCompare(a.artist)
+      if(rowsort.text==='Label') return rowsort.asc?a.label.localeCompare(b.label):b.label.localeCompare(a.label)
+      if(rowsort.text==='Genre') return rowsort.asc?a.genre.localeCompare(b.genre):b.genre.localeCompare(a.genre)
+      if(rowsort.text==='Time') return rowsort.asc?parseInt(a.time.replace(':',''),10)-parseInt(b.time.replace(':',''),10):parseInt(b.time.replace(':',''),10)-parseInt(a.time.replace(':',''),10)
+      if(rowsort.text==='Plays') return rowsort.asc?a.plays-b.plays:b.plays-a.plays
+      if(rowsort.text==='#') return a.title.localeCompare(b.title)
+    })
+    .map((el,i) => {
+      return <TrackRowComp el={el} i={i}/>
+  })
 
   return (
     <MyPages>
@@ -27,23 +40,7 @@ export default function Library() {
           </div>
         </h4>
         <TrackHeader headerslist={[{title:'#',flexbasis:10},{title:'Title'},{title:'Artist'},{title:'Label'},{title:'Genre'},{title:'Time',flexbasis:3},{title:'Plays',flexbasis:3},{title:'Options', flexbasis:3}]} style={{display: layout==='grid'?'none':'flex'}} sortTracks={({text,asc}) => setRowSort({text,asc})} active={rowsort.text} arrow={rowsort.asc}/>
-        {
-          layout==='list'?
-            tracks && tracks 
-              .sort((a,b) => {
-                if(rowsort.text==='Title') return rowsort.asc?a.title.localeCompare(b.title):b.title.localeCompare(a.title)
-                if(rowsort.text==='Artist') return rowsort.asc?a.artist.localeCompare(b.artist):b.artist.localeCompare(a.artist)
-                if(rowsort.text==='Label') return rowsort.asc?a.label.localeCompare(b.label):b.label.localeCompare(a.label)
-                if(rowsort.text==='Genre') return rowsort.asc?a.genre.localeCompare(b.genre):b.genre.localeCompare(a.genre)
-                if(rowsort.text==='Time') return rowsort.asc?parseInt(a.time.replace(':',''),10)-parseInt(b.time.replace(':',''),10):parseInt(b.time.replace(':',''),10)-parseInt(a.time.replace(':',''),10)
-                if(rowsort.text==='Plays') return rowsort.asc?a.plays-b.plays:b.plays-a.plays
-                if(rowsort.text==='#') return a.title.localeCompare(b.title)
-              })
-              .map((el,i) => {
-                return <TrackRowComp el={el} i={i}/>
-            })
-            :boxrow
-        }
+        { layout==='list'?listrow:boxrow }
       </div>
     </MyPages>
   )

@@ -1,0 +1,6 @@
+.homeleft {
+  grid-gap: 5px
+}
+.playedpages .trackrow h6.narrowflex:nth-last-of-type(1) {
+  color: var(--color);
+}

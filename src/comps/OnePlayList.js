@@ -38,11 +38,11 @@ export default function OnePlayList(props) {
         </div>
       </div>
       <div className="oneplaylistcontent">
-        <TrackRow render={({artistfilter}) => (
+        {
           listTracks && listTracks.map((el,i) => {
             return <TrackRowComp el={el} i={i}/>
           })
-        )}/>
+        }
       </div>
     </MyPages>
   )

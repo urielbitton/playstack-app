@@ -6,10 +6,10 @@ import './styles/SongsCont.css'
 
 export function BigRow(props) {
 
-  const {tracks} = useContext(StoreContext)
+  const {podcasts} = useContext(StoreContext)
   const {homeboxclass, homeboxtitle, songsfilter} = props
 
-  const bigrow = tracks && tracks
+  const bigrow = podcasts && podcasts
     .filter(x => x.category.includes(songsfilter))
     .map(el => {
       return <SongLargeBox key={el.id} songinfo={el} />

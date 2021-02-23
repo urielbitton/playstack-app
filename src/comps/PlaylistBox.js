@@ -20,7 +20,7 @@ export default function PlaylistBox(props) {
 
 
   return (
-    <div className="playlistbox" onClick={() => history.replace(`/playlists/${playlistName.toLowerCase().replaceAll(' ','')}`)}>
+    <div className="playlistbox" onClick={() => history.replace(`/myplaylists/${playlistName.toLowerCase().replaceAll(' ','')}`)}>
       <div className="imgcont">
         {imgboxes}
       </div>

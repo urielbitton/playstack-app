@@ -16,6 +16,8 @@ import LabelPage from './LabelPage'
 import Library from './Library'
 import NewPlaylist from './NewPlaylist'
 import OnePlayList from './OnePlayList'
+import MostPlayed from './MostPlayed'
+import RecentlyPlayed from './RecentlyPlayed'
 
  
 export default function Homecont() {
@@ -38,7 +40,7 @@ export default function Homecont() {
     </Route>
   })
   const onePlaylistPage = playlists && playlists.map(el => {
-    return <Route path={`/playlists/${el.playlistName.toLowerCase().replaceAll(' ','')}`}>
+    return <Route path={`/myplaylists/${el.playlistName.toLowerCase().replaceAll(' ','')}`}>
       <OnePlayList el={el} />
     </Route>
   })
@@ -79,7 +81,13 @@ export default function Homecont() {
           />
         </MyPages>
         </Route>
-        <Route path="/myplaylists">
+        <Route exact path="/mostplayed">
+          <MostPlayed />
+        </Route>
+        <Route exact path="/recentlyplayed">
+          <RecentlyPlayed />
+        </Route>
+        <Route exact path="/myplaylists">
           <MyPlaylists />
         </Route>
         <Route path="/newplaylist">
