@@ -1,15 +1,13 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { BrowserRouter as Router,Switch,Route,Link, useHistory } from "react-router-dom"
 import PlayPauseBtn from './PlayPauseBtn'
-import { StoreContext } from './StoreContext'
 import './styles/HeroBanner.css'
 
 export default function HeroBanner(props) {
 
-  const {loaded} = useContext(StoreContext)
   const {artwork, artist, title, alt, plays, isPlaying, favorite} = props.songinfo
   const {textSubtitle, textTitle, showsong=false, descript, genres, labels} = props
-  const history = useHistory()
+  const history = useHistory() 
 
   const genresitems = genres && genres.map(el => {
     return <span onClick={() => history.push(`/genres/${el.toLowerCase().replaceAll(' ','')}`)}>{el}</span>

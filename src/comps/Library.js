@@ -5,7 +5,6 @@ import TrackRow from './TrackRow'
 import TrackRowComp from './TrackRowComp'
 import './styles/Library.css'
 import TrackHeader from './TrackHeader'
-import MediumRow from './SongsCont'
 import BoxItem from './BoxItem'
 
 export default function Library() {
@@ -30,7 +29,6 @@ export default function Library() {
         <TrackHeader headerslist={[{title:'#',flexbasis:10},{title:'Title'},{title:'Artist'},{title:'Label'},{title:'Genre'},{title:'Time',flexbasis:3},{title:'Plays',flexbasis:3},{title:'Options', flexbasis:3}]} style={{display: layout==='grid'?'none':'flex'}} sortTracks={({text,asc}) => setRowSort({text,asc})} active={rowsort.text} arrow={rowsort.asc}/>
         {
           layout==='list'?
-          <TrackRow  render={() => (
             tracks && tracks 
               .sort((a,b) => {
                 if(rowsort.text==='Title') return rowsort.asc?a.title.localeCompare(b.title):b.title.localeCompare(a.title)
@@ -44,8 +42,7 @@ export default function Library() {
               .map((el,i) => {
                 return <TrackRowComp el={el} i={i}/>
             })
-          )}/>:
-          boxrow
+            :boxrow
         }
       </div>
     </MyPages>
